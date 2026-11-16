@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life School Family – Crescere e scoprire con amore</title>
+<meta name="description" content="Life School Family: istruzione parentale, materiali didattici inclusivi per ogni tipo di mente, il blog e il test gratuito per scegliere la scuola superiore.">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--ink:#111;--red:#E02424;--green:#008744;--blue:#4361EE;--tint:#F3F5FF;--yellow:#FFF3BF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--tint);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font-size:17px;line-height:1.5;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+a{color:var(--ink)}
+.strip{background:var(--yellow);border-bottom:3px solid var(--ink);padding:8px 14px;text-align:center;font-weight:700;font-size:15px}
+.strip b{color:var(--red)}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:3px solid var(--ink)}
+.bar{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 14px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0}
+.brand img.lg{height:42px}.brand img.sc{height:15px;max-width:180px}
+.menu-btn{margin-left:auto;min-height:44px;border:3px solid var(--ink);border-radius:14px;background:#fff;font:inherit;font-weight:800;font-size:15px;padding:4px 12px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}
+nav{display:none;border-top:3px solid var(--ink);background:#fff}
+nav.open{display:block}
+nav ul{list-style:none;margin:0 auto;max-width:720px;padding:10px 14px 14px;display:flex;flex-direction:column;gap:8px}
+nav a{display:block;border:2.5px solid var(--ink);border-radius:14px;padding:9px 14px;font-weight:700;text-decoration:none;background:#fff}
+nav a.here{background:var(--blue);color:#fff}
+.wrap{max-width:720px;margin:0 auto;padding:18px 14px 40px;display:flex;flex-direction:column;gap:22px}
+.card{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:18px 16px;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;gap:14px}
+.tint{background:var(--tint)}.yellow{background:var(--yellow)}
+.bars{display:flex;gap:8px}.bars i{width:56px;height:10px;border:2px solid var(--ink);border-radius:999px}
+h1{font-size:33px;line-height:1.06;font-weight:800;letter-spacing:-.5px}
+h2{font-size:24px;line-height:1.12;font-weight:800}
+h3{font-size:18px;font-weight:800;line-height:1.2}
+.hero{display:flex;align-items:flex-end;gap:12px}
+.hero .txt{display:flex;flex-direction:column;gap:12px;flex:1}
+.hero img{width:118px;flex:0 0 auto}
+.lead{font-weight:600}
+.btn{display:flex;align-items:center;justify-content:center;min-height:54px;border:3px solid var(--ink);border-radius:16px;background:#fff;font-weight:800;font-size:18px;padding:8px 16px;text-decoration:none;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.btn.green{background:var(--green);color:#fff}.btn.blue{background:var(--blue);color:#fff}.btn.red{background:var(--red);color:#fff}
+.btn:focus-visible,nav a:focus-visible,.menu-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pts{display:flex;flex-direction:column;gap:14px}
+.pt{display:flex;gap:12px;align-items:flex-start}
+.pt .dot{width:34px;height:34px;border:2.5px solid var(--ink);border-radius:999px;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.pt b{display:block;font-weight:800;line-height:1.3}
+.side{display:flex;gap:12px;align-items:flex-end}
+.side .txt{flex:1;display:flex;flex-direction:column;gap:10px}
+.side img{width:96px;flex:0 0 auto}
+.posts{display:flex;flex-direction:column;gap:10px}
+.post{display:flex;flex-direction:column;gap:2px;border:2.5px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff;text-decoration:none}
+.post small{font-size:13px;font-weight:700;color:#444}
+.post span{font-weight:800;line-height:1.25}
+.video{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;background:#fff;text-decoration:none;font-size:15px}
+.chip i{width:24px;height:24px;border-radius:999px;border:2px solid var(--ink)}
+.pic{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);background:#fff}
+.ph{border:3px dashed var(--ink);border-radius:16px;padding:22px 14px;text-align:center;font-weight:700;color:#555;background:#fff}
+footer{border-top:3px solid var(--ink);background:#fff}
+footer .in{max-width:720px;margin:0 auto;padding:18px 14px 28px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+footer a{font-weight:700}
+@media (min-width:720px){.hero img{width:170px}h1{font-size:40px}}
+</style>
+</head>
+<body>
+
+<div class="strip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html"><img class="lg" src="img/logo.png" alt="Logo Life School Family"><img class="sc" src="img/scritta.png" alt="Life School Family"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" onclick="var n=document.getElementById('menu');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰ Menu</button>
+  </div>
+  <nav id="menu">
+    <ul>
+      <li><a class="here" href="index.html">Home</a></li>
+      <li><a href="#">Chi sono</a></li>
+      <li><a href="https://lifeschoolfamily.github.io/tre-strade/">Il test</a></li>
+      <li><a href="#materiali">Materiali</a></li>
+      <li><a href="#omaggio">Materiali omaggio</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="#social">Contatti e social</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <img class="pic" src="img/copertina.webp" alt="Life School Family: crescere e scoprire con amore. Materiali per lo studio multimodale: storia, geografia, scienze, cinema, arte e gioco">
+
+  <section class="card">
+    <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
+    <div class="hero">
+      <div class="txt">
+        <h1>Life School Family: crescere e scoprire con amore</h1>
+        <p class="lead">Siamo una famiglia in cammino nel mondo dell'istruzione parentale.</p>
+        <p class="lead">Crediamo in una didattica su misura, viva e immersiva.</p>
+      </div>
+      <img src="img/saluto-busto.webp" alt="Mary di Life School Family che saluta">
+    </div>
+  </section>
+
+  <img class="pic" src="img/famiglia.webp" alt="Famiglia in istruzione parentale che pratica apprendimento creativo. Approccio educativo inclusivo dedicato alle neurodivergenze e al benessere dei bambini con DSA, autismo e ADHD">
+
+  <section class="card tint">
+    <h2>Cosa facciamo ogni giorno</h2>
+    <div class="pts">
+      <div class="pt"><span class="dot" style="background:var(--red)">1</span><p><b>Creiamo materiali inclusivi</b>Risorse didattiche pensate per valorizzare ogni tipo di mente e di apprendimento.</p></div>
+      <div class="pt"><span class="dot" style="background:var(--green)">2</span><p><b>Impariamo dallo schermo</b>Trasformiamo i film da semplice svago serale a veri e propri percorsi di studio multidisciplinari.</p></div>
+      <div class="pt"><span class="dot" style="background:var(--blue)">3</span><p><b>Condividiamo il viaggio</b>Raccontiamo i nostri esperimenti, le nostre scoperte e la magia dell'apprendimento quotidiano.</p></div>
+    </div>
+  </section>
+
+  <section class="card" id="materiali">
+    <h2>Scopri i materiali didattici inclusivi</h2>
+    <p>Materiali didattici inclusivi per ADHD, DSA e neurodivergenze, per lo studio multimodale.</p>
+    <div class="two">
+      <a class="btn red" href="https://eduki.com/it/autore/3412802/life-school-family-1" target="_blank" rel="noopener">Eduki</a>
+      <a class="btn blue" href="https://edudoro.eu/it_IT/vendors/life-school-family" target="_blank" rel="noopener">Edudoro</a>
+    </div>
+  </section>
+
+  <section class="card yellow" id="omaggio">
+    <div class="side">
+      <div class="txt">
+        <h2>Materiali didattici gratuiti</h2>
+        <p>Unisciti a noi e accedi ai materiali didattici gratuiti di Life School Family.</p>
+      </div>
+      <img src="img/idea-busto.webp" alt="">
+    </div>
+    <a class="btn green" href="#">Voglio i materiali gratuiti</a>
+  </section>
+
+  <section class="card" id="test">
+    <div class="side">
+      <div class="txt">
+        <h2>Dopo le medie? Tre strade per te!</h2>
+        <p>Il test gratuito per scoprire quali scuole ti somigliano.</p>
+      </div>
+      <img src="img/indica-busto.webp" alt="">
+    </div>
+    <a class="btn green" href="https://lifeschoolfamily.github.io/tre-strade/">Fai il test</a>
+  </section>
+
+  <section class="card" id="blog">
+    <h2>Dal blog</h2>
+    <div class="posts">
+      <a class="post" href="blog/dalla-fiaba-alla-scienza-perche-olio-e/index.html"><small>11 novembre 2026</small><span>Dalla fiaba alla scienza: perché olio e acqua non si mescolano?</span></a>
+      <a class="post" href="blog/quando-leccellenza-diventa-veleno/index.html"><small>1 giugno 2026</small><span>Quando l'eccellenza diventa veleno</span></a>
+      <a class="post" href="blog/adhd-quello-che-nessuno-ti-dice-finche/index.html"><small>3 maggio 2026</small><span>ADHD: Quello che nessuno ti dice</span></a>
+    </div>
+    <a class="btn blue" href="blog/index.html">Blog</a>
+  </section>
+
+  <section class="card">
+    <h2>Scopri i nostri video su YouTube</h2>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/C4UX0nA75yM" title="Video Life School Family" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x3XIFQIMoUw" title="Video Life School Family" loading="lazy" allowfullscreen></iframe></div>
+  </section>
+
+  <section class="card tint" id="social">
+    <h2>Vieni a conoscerci sui social</h2>
+    <div class="chips">
+      <a class="chip" href="https://www.instagram.com/life_school_family/" target="_blank" rel="noopener"><i style="background:var(--red)"></i>Instagram</a>
+      <a class="chip" href="https://www.youtube.com/@LifeSchoolFamily.Italia" target="_blank" rel="noopener"><i style="background:var(--red)"></i>YouTube</a>
+      <a class="chip" href="https://www.facebook.com/LifeSchoolFamily.it" target="_blank" rel="noopener"><i style="background:var(--blue)"></i>Facebook</a>
+      <a class="chip" href="https://it.pinterest.com/life_school_family/" target="_blank" rel="noopener"><i style="background:var(--green)"></i>Pinterest</a>
+      <a class="chip" href="https://www.tiktok.com/@lifeschoolfamily" target="_blank" rel="noopener"><i style="background:var(--ink)"></i>TikTok</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="in">
+    <p>© 2026 Life School Family. Tutti i diritti riservati.</p>
+    <p>Risorse create da Life School Family: diffondi il piacere di imparare, non il file.</p>
+    <p><a href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
