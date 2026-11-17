@@ -63,7 +63,7 @@ btns=''.join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if not k
 body=f'''<section class="card">
   <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
   <div class="side"><div class="txt"><h1>Materiali</h1><p class="lead">Scopri i materiali didattici inclusivi di Life School Family.</p></div>
-  <img src="../img/indica-busto.webp" alt=""></div>
+  <img src="../img/indica-busto.webp?v=2" alt=""></div>
 </section>
 <section class="shop-tools">
   <input class="search" type="search" placeholder="Cerca un materiale…" aria-label="Cerca un materiale">
