@@ -127,3 +127,30 @@ body3=f'''<section class="card">
 </section>'''
 page(os.path.join(SITE,'contatti','index.html'),'Contatti e social | Life School Family','Contatti di Life School Family: mail, Instagram, YouTube, Facebook, Pinterest e TikTok.','Contatti e social',body3)
 print('contatti ok')
+
+CHI_CSS='''
+details.cap{background:#fff;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);overflow:hidden}
+details.cap summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px;font-weight:800;font-size:20px}
+details.cap summary::-webkit-details-marker{display:none}
+details.cap summary::after{content:"+";flex:0 0 auto;width:34px;height:34px;border:2.5px solid var(--ink);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--yellow)}
+details.cap[open] summary::after{content:"–"}
+details.cap[open] summary{border-bottom:2.5px dashed var(--ink)}
+details.cap .in{padding:14px 16px 18px;display:flex;flex-direction:column;gap:12px;font-size:17px}
+details.cap summary:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+'''
+CSS_EXTRA+=CHI_CSS
+def cap(t,ps,color):
+    return f'<details class="cap"><summary><span style="display:flex;align-items:center;gap:10px"><i style="width:14px;height:14px;border-radius:999px;border:2px solid var(--ink);background:{color};display:inline-block"></i>{t}</span></summary><div class="in">'+''.join(f'<p>{p}</p>' for p in ps)+'</div></details>'
+body4='''<section class="card">
+  <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
+  <div class="side"><div class="txt"><h1>Chi sono</h1>
+  <p class="lead">Mi presento: sono Maria Silvia Santi, ma per quasi tutti sono Mary. Tata Mary dal 2011, per la precisione.</p></div>
+  <img src="../img/saluto-busto.webp" alt="Mary di Life School Family che saluta"></div>
+</section>
+'''+cap('Tata Mary',["Vivo a Bologna e lavoro con i bambini da più di vent'anni. Sono educatrice diplomata. Per quindici anni ho portato avanti un servizio di tate condivise: piccoli gruppi, tanta casa, tanto cortile."],'var(--red)')+cap('4mums',["Poi è nata 4mums. L'ho fondata insieme all'ostetrica e alla doula che mi hanno accompagnata quando i miei figli sono nati in casa. Sapevamo bene quanto conta non essere sole, all'inizio.","Io mi occupavo di fasce e babywearing, come consulente certificata, e della pannolinoteca dei lavabili: tante mamme hanno imparato da me a portare i loro piccoli addosso e a lavare un pannolino senza paura."],'var(--green)')+cap('I miei tre uragani',["E poi sono arrivati loro: Beatrice, Ginevra e Federico. I miei tre uragani. Con loro è arrivata anche la scelta che ha cambiato tutto: l'istruzione parentale.","Non l'ho vissuta come un dovere da sbrigare. È diventata il nostro modo di stare insieme. Ogni giorno preparo io i loro materiali: blocchi di studio, lapbook, mappe, giochi. Li costruisco su misura, perché ogni testa impara a modo suo, e una scheda uguale per tutti non va bene per nessuno."],'var(--blue)')+cap('Life School Family',["Da lì è nata Life School Family. Quello che funziona a casa nostra lo metto a disposizione di altre famiglie e di chi insegna, soprattutto di chi ha davanti una mente che non segue la strada dritta. ADHD, DSA, plusdotazione: qui non sono etichette da nascondere, sono modi di funzionare da conoscere.","Di materiali ne ho preparati circa 300. Su Eduki ed Edudoro ne trovi già una parte. Gli altri? Prima o poi li caricherò tutti. Promesso. Più o meno.",'<a class="btn green" href="../materiali/index.html">Guarda i materiali</a>'],'#E07A00')+cap('I libri',['Scrivo anche libri: li trovi nella pagina Libri.'],'#C2185B')+'''
+<section class="card yellow">
+  <p class="lead">Se ti ritrovi in qualcosa di quello che hai letto, scrivimi. Rispondo io, sempre.</p>
+  <a class="btn blue" href="../contatti/index.html">Scrivimi</a>
+</section>'''
+page(os.path.join(SITE,'chi-sono','index.html'),'Chi sono | Life School Family',"Mary, Maria Silvia Santi: educatrice, Tata Mary dal 2011, mamma in istruzione parentale e fondatrice di Life School Family.",'Chi sono',body4)
+print('chi sono ok')
