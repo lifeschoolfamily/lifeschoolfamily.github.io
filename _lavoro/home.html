@@ -63,6 +63,7 @@ footer{border-top:3px solid var(--ink);background:#fff}
 footer .in{max-width:720px;margin:0 auto;padding:18px 14px 28px;display:flex;flex-direction:column;gap:8px;font-size:14px}
 footer a{font-weight:700}
 @media (min-width:720px){.hero img{width:140px}h1{font-size:30px}}
+.sigla-btn{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font:inherit;font-weight:800;font-size:15px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}.sigla-btn svg{width:20px;height:20px}.sigla-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -184,5 +185,28 @@ footer a{font-weight:700}
   </div>
 </footer>
 
+
+<audio id="sigla" src="audio/sigla.mp3" preload="auto"></audio>
+<button class="sigla-btn" id="siglaBtn" type="button" aria-label="Ferma la sigla" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg><span>Sigla</span></button>
+<script>
+(function(){
+  var a=document.getElementById('sigla'),b=document.getElementById('siglaBtn'),t=b.querySelector('span');
+  var ON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>';
+  var OFF='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m23 9-6 6M17 9l6 6"/></svg>';
+  function ui(){var p=!a.paused;b.innerHTML=(p?ON:OFF)+'<span>'+(p?'Ferma la sigla':'Ascolta la sigla')+'</span>';b.setAttribute('aria-label',p?'Ferma la sigla':'Ascolta la sigla');}
+  a.addEventListener('play',ui);a.addEventListener('pause',ui);a.addEventListener('ended',function(){ui();setTimeout(function(){b.hidden=true},4000)});
+  b.addEventListener('click',function(e){e.stopPropagation();if(a.paused){a.play()}else{a.pause()}});
+  var giaSentita=false;try{giaSentita=sessionStorage.getItem('lsfSigla')==='1'}catch(e){}
+  b.hidden=false;ui();
+  if(giaSentita)return;
+  function segna(){try{sessionStorage.setItem('lsfSigla','1')}catch(e){}}
+  function start(){a.play().then(segna).catch(function(){})}
+  var p=a.play();
+  if(p&&p.then){p.then(segna).catch(function(){
+    var go=function(e){if(e&&e.target&&e.target.closest&&e.target.closest('#siglaBtn'))return;document.removeEventListener('pointerdown',go,true);document.removeEventListener('keydown',go,true);start()};
+    document.addEventListener('pointerdown',go,true);document.addEventListener('keydown',go,true);
+  })}
+})();
+</script>
 </body>
 </html>
