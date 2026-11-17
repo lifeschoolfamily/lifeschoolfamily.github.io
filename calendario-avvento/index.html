@@ -4,8 +4,8 @@
 <meta name="description" content="Il Calendario dell'Avvento Specchio e Finestra di Life School Family: 24 giorni per conoscersi e volersi bene, in famiglia. Libro su Amazon o PDF su Eduki.">
 <link rel="icon" href="../img/logo.png"><link rel="stylesheet" href="../fonts/fonts.css">
 <script>
-/* Pagina visibile solo dal 15 ottobre al 30 novembre. Fuori da queste date rimanda alla Home. Prova: ?avvento=1 */
-(function(){var d=new Date(),m=d.getMonth(),g=d.getDate();var aperta=(m===9&&g>=15)||m===10;
+/* Pagina visibile solo dal 15 ottobre al 25 dicembre. Fuori da queste date rimanda alla Home. Prova: ?avvento=1 */
+(function(){var d=new Date(),m=d.getMonth(),g=d.getDate();var aperta=(m===9&&g>=15)||m===10||(m===11&&g<=25);
 if(/[?&]avvento=1/.test(location.search))aperta=true;
 if(!aperta){location.replace('../index.html');}})();
 </script>
