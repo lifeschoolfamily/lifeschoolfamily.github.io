@@ -178,7 +178,7 @@ function viewWelcome(){
   '<div class="col"><h1>Dopo le medie?<br>Tre strade per te!</h1>'+
   '<div class="bars" aria-hidden="true"><i style="background:var(--lred)"></i><i style="background:var(--lgreen)"></i><i style="background:var(--lblue)"></i></div>'+
   '<p style="font-size:17px;font-weight:500">Il test gratuito per scoprire quali scuole ti somigliano</p></div>'+
-  '<div class="hero"><div class="avatar"><img src="img/saluto.webp" alt="Mary che saluta"></div>'+
+  '<div class="hero"><div class="avatar"><img src="img/m-saluto.webp" alt="Mary che saluta"></div>'+
   '<div class="card shadow bubble"><p class="big">'+esc(t[0])+'</p><p>'+esc(t[1])+'</p><p>'+esc(t[2])+'</p></div></div>'+
   '<div class="card col" style="font-size:15px"><p>'+esc(t[3])+'</p><p>'+esc(t[4])+' '+esc(t[5])+'</p><p>'+esc(t[6])+'</p><p><b>'+esc(t[7])+'</b></p>'+listenBtn('welcome')+'</div>'+
   '<button type="button" class="btn go" data-act="howto">Ci siamo? Si parte!</button>'+
@@ -186,7 +186,7 @@ function viewWelcome(){
 }
 function viewHowto(){
   SPEECH.howto=D.text.howto.join(' ');CLIPS.howto=['howto'];
-  var h='<div class="row between"><h1 style="font-size:32px">Come funziona</h1><div class="avatar-s"><img src="img/idea.webp" alt="Mary che spiega"></div></div><div class="card shadow col bubble">';
+  var h='<div class="row between"><h1 style="font-size:32px">Come funziona</h1><div class="avatar-s"><img src="img/m-idea.webp" alt="Mary che spiega"></div></div><div class="card shadow col bubble">';
   D.text.howto.forEach(function(p){h+='<p>'+esc(p)+'</p>';});
   h+=listenBtn('howto')+'</div><div class="grow"></div><button type="button" class="btn go" data-act="start">Ho capito, partiamo</button>'+strip();
   return h;
@@ -253,17 +253,15 @@ function decode(h){var m=/^#?podio-([0-9a-z]{22})-([LMF]{1,2}|X)([LMFX])$/.exec(
   var pct={};D.areaOrder.forEach(function(a,i){pct[a]=Math.min(parseInt(m[1].substr(i*2,2),36)||0,100);});
   return {pct:pct,ch:null,styles:m[2]==='X'?[]:m[2].split(''),q28:m[3]};}
 function link(url,label,cls){return url?'<a class="btn small '+(cls||'')+'" href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(label)+'</a>':(C.draft?'<span class="btn small off" aria-disabled="true">'+esc(label)+' <span class="draft">link da inserire</span></span>':'');}
-function resultText(r,pod){var t='Dopo le medie? Tre strade per te!\nIl mio podio:\n';
-  pod.forEach(function(o){t+=o.k+'. '+D.areas[o.a].name+' ('+o.p+'%)\n';});
-  if(r.styles.length)t+='Come imparo meglio: '+r.styles.map(function(c){return D.styles[c].name.toLowerCase();}).join(' e ')+'\n';
-  t+='\nFai anche tu il test gratuito di Life School Family'+(C.testUrl?': '+C.testUrl:'.');return t;}
+function resultText(r,pod){var base=C.testUrl||String(location.href).split('#')[0];
+  return 'Ecco il mio risultato del quiz:\n'+base+'#'+encode(r);}
 function viewResult(){
   var r=S.result,pod=podium(r.pct,r.ch),phrase=phraseFor(pod);
   var names=pod.map(function(o){return D.areas[o.a].name;});
   SPEECH.podio='Sul tuo podio ci sono: '+names.join(', ')+'. '+phrase;
   CLIPS.podio=['podio-intro'].concat(pod.map(function(o){return 'nome-'+o.a;}),['frase-'+phraseKey(pod)]);
   var h=(S.shared?'<div class="card col noprint" style="background:var(--yellow)"><p style="font-weight:700">Questo è un podio già fatto, aperto da un link.</p><button type="button" class="btn go" data-act="again">Fai il test dall\'inizio</button></div>':'')+'<div class="row" style="align-items:flex-start"><div class="col grow" style="padding-top:22px"><h1>'+(S.shared?'Il podio':'Il tuo podio')+'</h1><p style="font-weight:500">Ecco le '+(pod.length===4?'quattro':'tre')+' strade che ti somigliano di più.</p></div>'+
-    '<div class="avatar-s"><img src="img/festa.webp" alt="Mary che festeggia"></div></div>';
+    '<div class="avatar-s"><img src="img/m-festa.webp" alt="Mary che festeggia"></div></div>';
   /* podio: con tre gradini distinti l\'ordine è 2-1-3 */
   var disp=pod.slice();if(pod.length===3&&pod[0].k===1&&pod[1].k===2&&pod[2].k===3)disp=[pod[1],pod[0],pod[2]];
   h+='<div class="podium">';
@@ -300,9 +298,9 @@ function viewResult(){
   h+='</div></div>';
   /* azioni */
   h+='<div class="section noprint"><h2>Tieni il tuo risultato</h2><div class="row" style="flex-wrap:wrap"><button type="button" class="btn blue grow" data-act="share">'+ic('share')+'Condividi</button><button type="button" class="btn grow" data-act="print">'+ic('print')+'Salva o stampa</button></div>'+
-    '<div class="row" style="flex-wrap:wrap"><button type="button" class="btn small" data-act="copy">'+ic('copy')+'Copia il risultato</button>'+(C.testUrl?'<button type="button" class="btn small" data-act="link">'+ic('copy')+'Copia il link al mio podio</button>':'')+'<button type="button" class="btn small" data-act="again">'+ic('again')+'Rifai il test</button></div></div>';
+    '<div class="row" style="flex-wrap:wrap"><button type="button" class="btn small" data-act="again">'+ic('again')+'Rifai il quiz</button></div></div>';
   /* genitori */
-  h+='<div class="card parents section"><div class="row between"><h2>Per i genitori</h2><div class="avatar-s" style="width:70px;max-height:110px"><img src="img/ok.webp" alt=""></div></div>'+
+  h+='<div class="card parents section"><div class="row between"><h2>Per i genitori</h2><div class="avatar-s" style="width:70px;max-height:110px"><img src="img/m-busta.webp" alt=""></div></div>'+
     '<p>Questo podio non è un verdetto. È un punto di partenza per parlarne in famiglia.</p><p>Le tre aree indicano che cosa attira di più oggi chi ha fatto il test. A dodici o tredici anni gli interessi cambiano, ed è normale.</p>'+
     '<h3>Tre cose da fare adesso</h3><ol class="todo"><li>Chiedete: "Ti ci ritrovi?" E ascoltate la risposta, anche se vi sorprende.</li><li>Scegliete insieme due o tre scuole da visitare tra quelle indicate nei profili.</li><li>Rifate il test tra qualche mese, e confrontate i due podi.</li></ol>'+
     ((C.draft||C.newsletter||C.newsletterForm)?'<div class="card col" style="background:#fff"><h3>Come accompagnare la scelta, senza scegliere al posto loro</h3><p>Come leggere il podio, che cosa chiedere agli open day, gli errori più comuni. La ricevete iscrivendovi alla newsletter di Life School Family.</p><div class="noprint">'+(C.newsletterForm?'<iframe class="nlform" src="'+esc(C.newsletterForm)+'" title="Modulo per ricevere la guida" frameborder="0" scrolling="auto" loading="lazy"></iframe>':link(C.newsletter,'Voglio la guida','blue'))+'</div></div>':'')+
@@ -337,8 +335,8 @@ function act(a,el){
   if(a==='link'){var base=C.testUrl||String(location.href).split('#')[0];return copyText(base+'#'+encode(S.result),'Link al tuo podio copiato.');}
   var r=S.result,pod=r?podium(r.pct,r.ch):[],txt=r?resultText(r,pod):'';
   if(a==='copy'){return copyText(txt,'Risultato copiato: ora puoi incollarlo dove vuoi.');}
-  if(a==='share'){if(navigator.share){try{navigator.share({title:'Dopo le medie? Tre strade per te!',text:txt}).catch(function(){copyText(txt,'Risultato copiato: incollalo in un messaggio.');});return;}catch(e){}}
-    return copyText(txt,'Risultato copiato: incollalo in un messaggio.');}
+  if(a==='share'){if(navigator.share){try{navigator.share({title:'Dopo le medie? Tre strade per te!',text:txt}).catch(function(){copyText(txt,'Link al risultato copiato: incollalo in un messaggio.');});return;}catch(e){}}
+    return copyText(txt,'Link al risultato copiato: incollalo in un messaggio.');}
   if(a==='print'){var ds=app.querySelectorAll('details');for(var i=0;i<ds.length;i++)ds[i].open=true;try{window.print();}catch(e){}
     toast('Se la stampa non parte, usa "Stampa" dal menu del browser.');return;}
 }
