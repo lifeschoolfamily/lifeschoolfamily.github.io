@@ -46,8 +46,8 @@ MAT=[('m01','Colori Primari e Secondari','1h2qfkq2Jnt4kKxM0Vly9tkNM02pE24MQ'),
 ('m06','English - Avverbi di Luogo','1oGde1mGgbhiRQqIH4D0zsGOBNeBnr5Xi'),
 ('m07','Template Lapbook Vulcano da Compilare','1nRBaABIpTh1hnVPgba7Y3Hs0W9oODZXe'),
 ('m08','Template Lapbook Testo Poetico da Compilare','1ReYfteX6wbgsh6kRcJwoAs2Cb3sK2iXO'),
-('m09','Template Lapbook Testo Narrativo da Compilare','1UB-dLdYXm6xKaDqf0xTyZPqAl9xOSlKT'),
-('m10','Divinità Egizie da Colorare','1atlE1pgyWIMQ-jPMKb2La8--_6jXwhOl')]
+('m09','Template Lapbook Testo Narrativo da Compilare','1UB-dLdYXm6xKaDqf0xTyZPqAl9xOSlKT')]
+# m10 Divinità Egizie da Colorare tolto il 17/11: il file su Drive non esiste più
 PLAT='''<section class="card yellow">
   <p><b>Ti piacciono le nostre risorse gratuite? C'è molto altro da esplorare!</b></p>
   <p>Scegli la tua piattaforma preferita ed esplora i cataloghi!</p>
