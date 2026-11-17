@@ -73,7 +73,7 @@ article.body hr{border:0;border-top:3px dashed var(--ink);margin:24px 0}
 def header(root, here):
     voci = [("Home", root + "index.html"), ("Chi sono", "#"), ("Il test", "https://lifeschoolfamily.github.io/tre-strade/"),
             ("Materiali", root + "index.html#materiali"), ("Materiali omaggio", root + "materiali-omaggio/index.html"),
-            ("Blog", root + "blog/index.html"), ("Contatti e social", root + "index.html#social")]
+            ("Blog", root + "blog/index.html"), ("Contatti e social", root + "contatti/index.html")]
     li = "".join(f'<li><a{" class=\"here\"" if n == here else ""} href="{u}">{n}</a></li>' for n, u in voci)
     return f'''<div class="strip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div>
 <header><div class="bar"><a class="brand" href="{root}index.html"><img class="lg" src="{root}img/logo.png" alt="Logo Life School Family"><img class="sc" src="{root}img/scritta.png" alt="Life School Family"></a>

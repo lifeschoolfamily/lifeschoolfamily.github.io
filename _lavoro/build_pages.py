@@ -94,3 +94,32 @@ body2='''<section class="card">
 <div class="mgrid">'''+''.join(f'<div class="mcard"><img src="../img/materiali/{k}.webp" alt="{html.escape(t)}" loading="lazy"><h3>{html.escape(t)}</h3></div>' for k,t,i in MAT[:4])+'</div>'
 page(os.path.join(SITE,'materiali-omaggio','index.html'),'Materiali omaggio | Life School Family','Materiali didattici gratuiti di Life School Family: lascia la tua mail e accedi.','Materiali omaggio',body2)
 print('ok')
+
+SOC=[('Instagram','https://www.instagram.com/life_school_family/','life_school_family','var(--red)'),
+('YouTube','https://www.youtube.com/@LifeSchoolFamily.Italia','@LifeSchoolFamily.Italia','var(--red)'),
+('Facebook','https://www.facebook.com/LifeSchoolFamily.it','LifeSchoolFamily.it','var(--blue)'),
+('Pinterest','https://it.pinterest.com/life_school_family/','life_school_family','var(--green)'),
+('TikTok','https://www.tiktok.com/@lifeschoolfamily','@lifeschoolfamily','var(--ink)')]
+soc=''.join(f'<a class="post" href="{u}" target="_blank" rel="noopener"><small style="display:flex;align-items:center;gap:8px"><i style="width:14px;height:14px;border-radius:999px;border:2px solid var(--ink);background:{c};display:inline-block"></i>{n}</small><span>{h}</span></a>' for n,u,h,c in SOC)
+body3=f'''<section class="card">
+  <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
+  <div class="side"><div class="txt"><h1>Contatti e social</h1></div>
+  <img src="../img/saluto-busto.webp" alt="Mary di Life School Family che saluta"></div>
+</section>
+<section class="card yellow">
+  <h2>Scrivimi</h2>
+  <a class="btn blue" href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a>
+</section>
+<section class="card tint">
+  <h2>Vieni a conoscerci sui social</h2>
+  <div class="posts">{soc}</div>
+</section>
+<section class="card">
+  <h2>I nostri materiali</h2>
+  <div class="plat">
+    <a href="https://edudoro.eu/it_IT/vendors/life-school-family" target="_blank" rel="noopener"><img src="../img/materiali/edudoro.webp" alt="Edudoro"></a>
+    <a href="https://eduki.com/it/autore/3412802/life-school-family-1" target="_blank" rel="noopener"><img src="../img/materiali/eduki.webp" alt="Eduki"></a>
+  </div>
+</section>'''
+page(os.path.join(SITE,'contatti','index.html'),'Contatti e social | Life School Family','Contatti di Life School Family: mail, Instagram, YouTube, Facebook, Pinterest e TikTok.','Contatti e social',body3)
+print('contatti ok')
