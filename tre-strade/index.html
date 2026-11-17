@@ -92,6 +92,7 @@ details.k1 summary{background:var(--red)}details.k2 summary{background:var(--gre
 .meter .v{text-align:right;font-weight:800}
 .section{display:flex;flex-direction:column;gap:12px}
 .parents{background:var(--tint)}
+.nlform{display:block;width:100%;max-width:540px;height:360px;margin:0 auto;border:0}
 .links{display:flex;flex-wrap:wrap;gap:10px}
 ol.todo{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;max-width:90%;text-align:center;z-index:9}
@@ -105,9 +106,9 @@ ol.todo{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
 </head>
 <body>
 <main id="app" aria-live="polite"></main>
-<script src="data.js?v=20261116c"></script>
-<script src="links.js?v=20261116c"></script>
-<script src="audio/clips.js?v=20261116c"></script>
+<script src="data.js?v=20261117a"></script>
+<script src="links.js?v=20261117a"></script>
+<script src="audio/clips.js?v=20261117a"></script>
 <script>
 (function(){
 "use strict";
@@ -303,7 +304,7 @@ function viewResult(){
   h+='<div class="card parents section"><div class="row between"><h2>Per i genitori</h2><div class="avatar-s" style="width:70px;max-height:110px"><img src="img/ok.webp" alt=""></div></div>'+
     '<p>Questo podio non è un verdetto. È un punto di partenza per parlarne in famiglia.</p><p>Le tre aree indicano che cosa attira di più oggi chi ha fatto il test. A dodici o tredici anni gli interessi cambiano, ed è normale.</p>'+
     '<h3>Tre cose da fare adesso</h3><ol class="todo"><li>Chiedete: "Ti ci ritrovi?" E ascoltate la risposta, anche se vi sorprende.</li><li>Scegliete insieme due o tre scuole da visitare tra quelle indicate nei profili.</li><li>Rifate il test tra qualche mese, e confrontate i due podi.</li></ol>'+
-    ((C.draft||C.newsletter)?'<div class="card col" style="background:#fff"><h3>Come accompagnare la scelta, senza scegliere al posto loro</h3><p>Come leggere il podio, che cosa chiedere agli open day, gli errori più comuni. La ricevete iscrivendovi alla newsletter di Life School Family.</p><div class="noprint">'+link(C.newsletter,'Voglio la guida','blue')+'</div></div>':'')+
+    ((C.draft||C.newsletter||C.newsletterForm)?'<div class="card col" style="background:#fff"><h3>Come accompagnare la scelta, senza scegliere al posto loro</h3><p>Come leggere il podio, che cosa chiedere agli open day, gli errori più comuni. La ricevete iscrivendovi alla newsletter di Life School Family.</p><div class="noprint">'+(C.newsletterForm?'<iframe class="nlform" src="'+esc(C.newsletterForm)+'" title="Modulo per ricevere la guida" frameborder="0" scrolling="auto" loading="lazy"></iframe>':link(C.newsletter,'Voglio la guida','blue'))+'</div></div>':'')+
     ((C.draft||C.prenota)?'<div class="card col" style="background:#fff"><h3>Parliamone insieme</h3><p>Un colloquio educativo online per leggere il podio con chi ha fatto il test e con almeno un genitore, e capire quali passi fare.</p><p>Primo colloquio, 20 minuti: <b>'+esc(C.prezzo20)+'</b><br>Colloquio completo, 45 minuti: <b>'+esc(C.prezzo45)+'</b></p><p>Con il codice <b>'+esc(C.codice)+'</b>, valido 30 giorni, il prezzo è ridotto.</p><div class="noprint">'+link(C.prenota,'Prenota un colloquio','blue')+'</div></div>':'')+
     '<div class="col"><h3>Chi è Mary</h3>';
   D.text.mary.forEach(function(p){h+='<p style="font-size:15px">'+esc(p)+'</p>';});

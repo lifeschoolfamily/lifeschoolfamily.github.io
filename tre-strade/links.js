@@ -11,5 +11,6 @@
   c.libro1nome = "Libro: La Danza delle Parentesi";
   c.libro2 = "https://www.amazon.it/dp/B0HRNKV19Y";
   c.libro2nome = "Libro: Calendario dell'Avvento";
+  c.newsletterForm = "https://077c5c83.sibforms.com/v2/serve/MUIFAKCxO8KGQtbGiFqM19Yehf1wze82xvoe_pU_i970eR_QS_Uddvkh5lczZqLxB6JDPl3ZJvbWMvlE4i-Act0Y3t63lo5u0Ep4UBkRMowh9cmDafLe2lPCawMcGbBNGTEKqUZMdkZqkfY247LJB6hsUQLoUbVGL0xFXCLyBn_9b2Rxl8DfXRnICgGL2xdXpt-IbjoPU0M_RhLe7g==";
   /* da completare: c.newsletter, c.prenota, c.cercaScuole, c.prezzo20, c.prezzo45, c.codice */
 })(LSF.config);
