@@ -5,7 +5,7 @@ head,rest=tpl.split('<main class="wrap">',1)
 foot=rest.split('</main>',1)[1]
 foot=re.sub(r'<script>.*?</script>','',foot,flags=re.S)
 CSS_EXTRA='''
-.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .mcard{background:#fff;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:10px;display:flex;flex-direction:column;gap:8px}
 .mcard img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border:2px solid var(--ink);border-radius:12px;background:var(--tint)}
 .mcard h3{font-size:15px;line-height:1.2}
