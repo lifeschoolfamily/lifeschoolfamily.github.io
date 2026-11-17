@@ -14,8 +14,10 @@ def cats(t):
     if re.search(r'area|tabelline|misurazione|organizzare i dati',T): c.append('matematica')
     if re.search(r'english',T): c.append('inglese')
     if re.search(r'caccia al tesoro|avvento|biglietto|ded|caa',T): c.append('altro')
+    if 'lapbook' in T: c.append('lapbook')
+    if re.search(r'1°\s*media|2media|2°\s*media|medie',T): c.append('medie')
     if 'arte' in c and 'storia' in c and 'kit multimodale arte' in T: c.remove('storia')
-    return c or ['altro']
+    return c if any(x not in ('lapbook','medie') for x in c) else c+['altro']
 items=[];free_items=[]
 for x in d:
     pid=x['path'].split('/')[0]
@@ -43,7 +45,7 @@ CSS='''
 .tag{position:absolute;top:16px;left:16px;font-size:11px;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:2px 8px;background:var(--yellow)}
 .tag.new{background:var(--green);color:#fff}
 '''
-chips=[('','Tutti'),('nuovi','Novità'),('bundle','Pacchetti')]+CATS
+chips=[('','Tutti'),('lapbook','Lapbook'),('medie','Blocchi studio medie'),('nuovi','Novità'),('bundle','Pacchetti')]+CATS
 btns=''.join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if not k else "false"}">{n}</button>' for k,n in chips)
 body=f'''<section class="card">
   <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
