@@ -53,13 +53,13 @@ CSS += """
 .filters button[aria-pressed=true]{background:var(--ink);color:#fff}
 .plist{display:flex;flex-direction:column;gap:16px}
 .pcard{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}
-.pcard h2{font-size:21px;line-height:1.2}
+.pcard h2{font-size:19px;line-height:1.2}
 .pcard p.ex{font-size:16px;color:#222}
 .more{font-weight:800;color:var(--blue)}
-article.body{font-size:18px;line-height:1.6}
+article.body{font-size:17px;line-height:1.6}
 article.body > * + *{margin-top:14px}
-article.body h2{font-size:24px;margin-top:26px}
-article.body h3{font-size:21px;margin-top:22px}
+article.body h2{font-size:21px;margin-top:26px}
+article.body h3{font-size:18px;margin-top:22px}
 article.body h4{font-size:18px;margin-top:18px}
 article.body ul,article.body ol{padding-left:24px}
 article.body li + li{margin-top:6px}
@@ -71,9 +71,9 @@ article.body hr{border:0;border-top:3px dashed var(--ink);margin:24px 0}
 """
 
 def header(root, here):
-    voci = [("Home", root + "index.html"), ("Chi sono", root + "chi-sono/index.html"), ("Il test", "https://lifeschoolfamily.github.io/tre-strade/"),
+    voci = [("Home", root + "index.html"), ("Chi sono", root + "chi-sono/index.html"),
             ("Materiali", root + "materiali/index.html"), ("Libri", root + "libri/index.html"), ("Consigliati", root + "consigliati/index.html"), ("Materiali omaggio", root + "materiali-omaggio/index.html"),
-            ("Blog", root + "blog/index.html"), ("Contatti e social", root + "contatti/index.html")]
+            ("Blog", root + "blog/index.html"), ("Quiz orientamento", "https://lifeschoolfamily.github.io/tre-strade/"), ("Contatti e social", root + "contatti/index.html")]
     li = "".join(f'<li><a{" class=\"here\"" if n == here else ""} href="{u}">{n}</a></li>' for n, u in voci)
     return f'''<div class="strip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div>
 <header><div class="bar"><a class="brand" href="{root}index.html"><img class="lg" src="{root}img/logo.png" alt="Logo Life School Family"><img class="sc" src="{root}img/scritta.png" alt="Life School Family"></a>
@@ -192,7 +192,7 @@ for i, p in enumerate(posts):
     body = f'''<p class="crumb"><a href="../index.html">← Tutti gli articoli</a></p>
 <section class="card">
   {pills(p["temi"], root)}
-  <h1 style="font-size:30px">{html.escape(p["title"])}</h1>
+  <h1 style="font-size:26px">{html.escape(p["title"])}</h1>
   <p class="meta">{data_it(p["date"])} · Mary di Life School Family</p>
 </section>
 <section class="card"><article class="body">
