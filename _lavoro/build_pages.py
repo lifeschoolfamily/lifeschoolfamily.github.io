@@ -144,12 +144,14 @@ def cap(t,ps,color):
 body4='''<section class="card">
   <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
   <div class="side"><div class="txt"><h1>Chi sono</h1>
-  <p class="lead">Mi presento: sono Maria Silvia Santi, ma per quasi tutti sono Mary. Tata Mary dal 2011, per la precisione.</p></div>
+  <p class="lead">Ciao! Entra pure, qui non serve bussare.</p>
+  <p>Sono Maria Silvia Santi, ma per quasi tutti sono Mary. Tata Mary dal 2011, per la precisione. Siediti un attimo: ti racconto da dove arriva tutto questo.</p></div>
   <img src="../img/saluto-busto.webp" alt="Mary di Life School Family che saluta"></div>
 </section>
 '''+cap('Tata Mary',["Vivo a Bologna e lavoro con i bambini da più di vent'anni. Sono educatrice diplomata. Per quindici anni ho portato avanti un servizio di tate condivise: piccoli gruppi, tanta casa, tanto cortile."],'var(--red)')+cap('4mums',["Poi è nata 4mums. L'ho fondata insieme all'ostetrica e alla doula che mi hanno accompagnata quando i miei figli sono nati in casa. Sapevamo bene quanto conta non essere sole, all'inizio.","Io mi occupavo di fasce e babywearing, come consulente certificata, e della pannolinoteca dei lavabili: tante mamme hanno imparato da me a portare i loro piccoli addosso e a lavare un pannolino senza paura."],'var(--green)')+cap('I miei tre uragani',["E poi sono arrivati loro: Beatrice, Ginevra e Federico. I miei tre uragani. Con loro è arrivata anche la scelta che ha cambiato tutto: l'istruzione parentale.","Non l'ho vissuta come un dovere da sbrigare. È diventata il nostro modo di stare insieme. Ogni giorno preparo io i loro materiali: blocchi di studio, lapbook, mappe, giochi. Li costruisco su misura, perché ogni testa impara a modo suo, e una scheda uguale per tutti non va bene per nessuno."],'var(--blue)')+cap('Life School Family',["Da lì è nata Life School Family. Quello che funziona a casa nostra lo metto a disposizione di altre famiglie e di chi insegna, soprattutto di chi ha davanti una mente che non segue la strada dritta. ADHD, DSA, plusdotazione: qui non sono etichette da nascondere, sono modi di funzionare da conoscere.","Di materiali ne ho preparati circa 300. Su Eduki ed Edudoro ne trovi già una parte. Gli altri? Prima o poi li caricherò tutti. Promesso. Più o meno.",'<a class="btn green" href="../materiali/index.html">Guarda i materiali</a>'],'#E07A00')+cap('I libri',['Scrivo anche libri: li trovi nella pagina Libri.'],'#C2185B')+'''
 <section class="card yellow">
-  <p class="lead">Se ti ritrovi in qualcosa di quello che hai letto, scrivimi. Rispondo io, sempre.</p>
+  <p class="lead">Se leggendo hai riconosciuto un pezzo di casa tua, scrivimi. Anche solo per raccontarmi com'è la tua giornata, o per chiedermi una cosa che non hai il coraggio di chiedere altrove.</p>
+  <p>Rispondo io, sempre. A volte tra un lapbook e una lavatrice, ma rispondo.</p>
   <a class="btn blue" href="../contatti/index.html">Scrivimi</a>
 </section>'''
 page(os.path.join(SITE,'chi-sono','index.html'),'Chi sono | Life School Family',"Mary, Maria Silvia Santi: educatrice, Tata Mary dal 2011, mamma in istruzione parentale e fondatrice di Life School Family.",'Chi sono',body4)
