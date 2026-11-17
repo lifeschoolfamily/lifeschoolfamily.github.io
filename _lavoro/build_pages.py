@@ -113,6 +113,15 @@ body3=f'''<section class="card">
 <section class="card yellow">
   <h2>Scrivimi</h2>
   <a class="btn blue" href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a>
+  <a class="btn green" href="https://wa.me/393386523639" target="_blank" rel="noopener">WhatsApp 338 65 23 639</a>
+</section>
+<section class="card tint" id="newsletter">
+  <h2>La newsletter</h2>
+  <div class="form-ph">
+    <b>[ Qui va il modulo Brevo della newsletter ]</b>
+    <div class="f">La vostra mail</div>
+    <span class="btn blue">ISCRIVITI</span>
+  </div>
 </section>
 <section class="card tint">
   <h2>Vieni a conoscerci sui social</h2>
@@ -153,6 +162,7 @@ body4='''<section class="card">
   <p class="lead">Se leggendo hai riconosciuto un pezzo di casa tua, scrivimi. Anche solo per raccontarmi com'è la tua giornata, o per chiedermi una cosa che non hai il coraggio di chiedere altrove.</p>
   <p>Rispondo io, sempre. A volte tra un lapbook e una lavatrice, ma rispondo.</p>
   <a class="btn blue" href="../contatti/index.html">Scrivimi</a>
+  <a class="btn green" href="../contatti/index.html#newsletter">Iscriviti alla newsletter</a>
 </section>'''
 page(os.path.join(SITE,'chi-sono','index.html'),'Chi sono | Life School Family',"Mary, Maria Silvia Santi: educatrice, Tata Mary dal 2011, mamma in istruzione parentale e fondatrice di Life School Family.",'Chi sono',body4)
 print('chi sono ok')
