@@ -123,7 +123,7 @@
     if (!nome || !testo) { avviso("Scrivi il tuo nome e il commento, poi invia.", false); return; }
     if (!document.getElementById("cm-ok").checked) { avviso("Per inviare spunta la casella della privacy.", false); return; }
     bottone.disabled = true;
-    bottone.textContent = "Invio in corso…";
+    bottone.textContent = "Invio in corso, aspetta qualche secondo…";
     fetch(DEST, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
@@ -141,6 +141,11 @@
     })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
+        if (x.ok && /activ/i.test(x.j.message || "")) {
+          avviso("Il modulo dei commenti si sta attivando proprio adesso: riprova tra qualche minuto. Scusa!", false);
+          bottone.disabled = false; bottone.textContent = "INVIA IL COMMENTO";
+          return;
+        }
         if (!x.ok || String(x.j.success) === "false") throw new Error(x.j.message || "errore");
         if (mail) iscrivi(mail, nome);
         form.reset();
