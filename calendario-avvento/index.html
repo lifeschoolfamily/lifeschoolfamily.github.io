@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il nostro Calendario dell'Avvento | Life School Family</title>
+<meta name="description" content="Il Calendario dell'Avvento Specchio e Finestra di Life School Family: 24 giorni per conoscersi e volersi bene, in famiglia. Libro su Amazon o PDF su Eduki.">
+<link rel="icon" href="../img/logo.png"><link rel="stylesheet" href="../fonts/fonts.css">
+<script>
+/* Pagina visibile solo dal 15 ottobre al 30 novembre. Fuori da queste date rimanda alla Home. Prova: ?avvento=1 */
+(function(){var d=new Date(),m=d.getMonth(),g=d.getDate();var aperta=(m===9&&g>=15)||m===10;
+if(/[?&]avvento=1/.test(location.search))aperta=true;
+if(!aperta){location.replace('../index.html');}})();
+</script>
+<style>
+:root{--ink:#111;--red:#E02424;--green:#008744;--blue:#4361EE;--tint:#F3F5FF;--yellow:#FFF3BF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--tint);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font-size:16px;line-height:1.45;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+a{color:var(--ink)}
+.strip{background:var(--yellow);border-bottom:3px solid var(--ink);padding:7px 12px;text-align:center;font-weight:700;font-size:14px}
+.strip b{color:var(--red)}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:3px solid var(--ink)}
+.bar{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 14px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0}
+.brand img.lg{height:42px}.brand img.sc{height:15px;max-width:180px}
+.menu-btn{margin-left:auto;min-height:44px;border:3px solid var(--ink);border-radius:14px;background:#fff;font:inherit;font-weight:800;font-size:15px;padding:4px 12px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}
+nav{display:none;border-top:3px solid var(--ink);background:#fff}
+nav.open{display:block}
+nav ul{list-style:none;margin:0 auto;max-width:720px;padding:10px 14px 14px;display:flex;flex-direction:column;gap:8px}
+nav a{display:block;border:2.5px solid var(--ink);border-radius:14px;padding:9px 14px;font-weight:700;text-decoration:none;background:#fff}
+nav a.here{background:var(--blue);color:#fff}
+.wrap{max-width:720px;margin:0 auto;padding:18px 14px 40px;display:flex;flex-direction:column;gap:22px}
+.card{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:14px;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;gap:12px}
+.tint{background:var(--tint)}.yellow{background:var(--yellow)}
+.bars{display:flex;gap:8px}.bars i{width:56px;height:10px;border:2px solid var(--ink);border-radius:999px}
+h1{font-size:24px;line-height:1.12;font-weight:800;letter-spacing:-.5px}
+h2{font-size:20px;line-height:1.15;font-weight:800}
+h3{font-size:16.5px;font-weight:800;line-height:1.2}
+.hero{display:flex;align-items:flex-end;gap:12px}
+.hero .txt{display:flex;flex-direction:column;gap:12px;flex:1}
+.hero img{width:100px;flex:0 0 auto}
+.lead{font-weight:600}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;border:3px solid var(--ink);border-radius:16px;background:#fff;font-weight:800;font-size:17px;padding:8px 16px;text-decoration:none;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.btn.green{background:var(--green);color:#fff}.btn.blue{background:var(--blue);color:#fff}.btn.red{background:var(--red);color:#fff}
+.btn:focus-visible,nav a:focus-visible,.menu-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pts{display:flex;flex-direction:column;gap:14px}
+.pt{display:flex;gap:12px;align-items:flex-start}
+.pt .dot{width:34px;height:34px;border:2.5px solid var(--ink);border-radius:999px;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.pt b{display:block;font-weight:800;line-height:1.3}
+.side{display:flex;gap:12px;align-items:flex-end}
+.side .txt{flex:1;display:flex;flex-direction:column;gap:10px}
+.side img{width:96px;flex:0 0 auto}
+.posts{display:flex;flex-direction:column;gap:10px}
+.post{display:flex;flex-direction:column;gap:2px;border:2.5px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff;text-decoration:none}
+.post small{font-size:13px;font-weight:700;color:#444}
+.post span{font-weight:800;line-height:1.25}
+.video{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;background:#fff;text-decoration:none;font-size:15px}
+.chip i{width:24px;height:24px;border-radius:999px;border:2px solid var(--ink)}
+.pic{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);background:#fff}
+.ph{border:3px dashed var(--ink);border-radius:16px;padding:22px 14px;text-align:center;font-weight:700;color:#555;background:#fff}
+footer{border-top:3px solid var(--ink);background:#fff}
+footer .in{max-width:720px;margin:0 auto;padding:18px 14px 28px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+footer a{font-weight:700}
+@media (min-width:720px){.hero img{width:140px}h1{font-size:30px}}
+.sigla-btn{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font:inherit;font-weight:800;font-size:15px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}.sigla-btn svg{width:20px;height:20px}.sigla-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* --- Natale --- */
+body.xmas{background-color:#0f5132;background-image:radial-gradient(circle at 20% 10%,#1a7a4c 0,transparent 55%),radial-gradient(circle at 85% 70%,#7a1010 0,transparent 50%);background-attachment:fixed}
+.snow{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.snow i{position:absolute;top:-20px;color:#fff;opacity:.85;animation:fall linear infinite;font-style:normal}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.snow{display:none}}
+.wrap{position:relative;z-index:2}
+.lights{display:flex;justify-content:space-between;margin:-4px 0 -6px;padding:0 6px}
+.lights b{width:12px;height:18px;border:2px solid var(--ink);border-radius:50% 50% 45% 45%;animation:blink 1.6s infinite}
+.lights b:nth-child(3n){background:#E02424}.lights b:nth-child(3n+1){background:#FFC300;animation-delay:.5s}.lights b:nth-child(3n+2){background:#00BF63;animation-delay:1s}
+@keyframes blink{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.lights b{animation:none}}
+.xhero{background:#fff;border-color:var(--ink)}
+.xtop{display:flex;gap:14px;align-items:flex-end}
+.xtop .txt{flex:1;display:flex;flex-direction:column;gap:10px}
+.xtop img{width:120px;flex:0 0 auto;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink)}
+.kick{font-weight:800;color:var(--red);font-size:15px;letter-spacing:.5px;text-transform:uppercase}
+.xhero h1{color:#0f5132}
+.cover{display:block;width:62%;max-width:300px;margin:0 auto;border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg)}
+.redc{background:#B91C1C;color:#fff}.redc h2{color:#FFF3BF}
+.greenc{background:#E8F7EE}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.facts li{display:flex;gap:10px;align-items:flex-start}
+.facts li::before{content:"★";color:#FFC300;-webkit-text-stroke:1px var(--ink);font-size:20px;line-height:1.1}
+.weeks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.weeks div{border:3px solid var(--ink);border-radius:14px;padding:10px;background:#fff;color:var(--ink);font-weight:800;text-align:center;box-shadow:3px 3px 0 var(--ink)}
+.weeks small{display:block;font-size:13px;color:var(--red)}
+.chiuso{display:none}
+@media (min-width:720px){.xtop img{width:160px}}
+</style></head><body class="xmas">
+<div class="snow" id="snow" aria-hidden="true"></div>
+
+<div class="strip" id="bfstrip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div><script>if(Date.now()>=new Date(2026,10,30).getTime()){var bf=document.getElementById("bfstrip");if(bf)bf.remove();}</script>
+<header><div class="bar"><a class="brand" href="../index.html"><img class="lg" src="../img/logo.png" alt="Logo Life School Family"><img class="sc" src="../img/scritta.png" alt="Life School Family"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu" onclick="var n=document.getElementById('menu');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰ Menu</button></div>
+<nav id="menu"><ul><li><a href="../index.html">Home</a></li><li><a href="../chi-sono/index.html">Chi sono</a></li><li><a href="../materiali/index.html">Materiali</a></li><li><a href="../libri/index.html">Libri</a></li><li><a href="../consigliati/index.html">Consigliati</a></li><li><a href="../materiali-omaggio/index.html">Materiali omaggio</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="https://lifeschoolfamily.github.io/tre-strade/">Quiz orientamento</a></li><li><a href="../contatti/index.html">Contatti e social</a></li></ul></nav></header>
+<main class="wrap">
+
+<div class="lights" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+
+<section class="card xhero">
+<div class="xtop">
+<div class="txt">
+<p class="kick">🎄 Natale in Life School Family</p>
+<h1>Il nostro Calendario dell'Avvento</h1>
+<p class="lead">"Specchio e Finestra": conoscersi, crescere, volersi bene.</p>
+</div>
+<img src="../img/mary-natale.webp" alt="Mary di Life School Family con il cappello di Babbo Natale">
+</div>
+<p>Questo calendario non cambia la vita in sette minuti al giorno. Nessun calendario lo fa.</p>
+<p>Fa un'altra cosa: dal 1° al 24 dicembre mette la famiglia intorno al tavolo a guardarsi. Ognuno dentro di sé, e poi negli occhi degli altri.</p>
+<div class="two"><a class="btn red" href="https://www.amazon.it/dp/B0HRNKV19Y" target="_blank" rel="noopener sponsored">Il libro su Amazon</a>
+<a class="btn green" href="https://eduki.com/it/material/2441856/calendario-avvento---specchio-e-finestra" target="_blank" rel="noopener">Il PDF su Eduki</a></div>
+</section>
+
+<img class="cover" src="../img/libri/avvento.webp" alt="Copertina del Calendario dell'Avvento Specchio e Finestra">
+
+<section class="card redc">
+<h2>Come funziona ogni giorno</h2>
+<ul class="facts">
+<li><span><b>La storia.</b> Si parte da un racconto, un fumetto, un quadro o una canzone.</span></li>
+<li><span><b>Lo strumento.</b> Una pagina pratica, con una tecnica da provare subito.</span></li>
+<li><span><b>Lo specchio.</b> Una stella da colorare dal centro verso fuori. Niente numeri, niente punteggi.</span></li>
+<li><span><b>La finestra.</b> Un'attività da fare con qualcun altro e un pezzo da ritagliare.</span></li>
+<li><span><b>La mappa della tribù.</b> Ogni pezzo ritagliato va su un cartellone, uno solo per tutta la famiglia. Il 24 dicembre, al centro, va il cuore della tribù.</span></li>
+</ul>
+</section>
+
+<section class="card greenc">
+<h2>Le quattro settimane</h2>
+<div class="weeks"><div><small>1ª settimana</small>Chi sono</div><div><small>2ª settimana</small>Come funziono</div><div><small>3ª settimana</small>Io e gli altri</div><div><small>4ª settimana</small>Noi e il domani</div></div>
+<p>Si scrive pochissimo. Si colora, si ritaglia, si mette una crocetta. È un gioco, non un compito.</p>
+<p>Serve poco: matite colorate, forbici, colla e un cartellone grande. E se saltate un giorno, il cartellone non si rovina.</p>
+</section>
+
+<section class="card yellow">
+<h2>🎁 Libro o PDF?</h2>
+<p><b>Il libro su Amazon</b> arriva già pronto: si apre e si comincia, senza stampare niente.</p>
+<p><b>Il PDF su Eduki</b> lo stampi tu, in tre versioni: a colori, in bianco e nero da colorare, in scala di grigi.</p>
+<div class="two"><a class="btn red" href="https://www.amazon.it/dp/B0HRNKV19Y" target="_blank" rel="noopener sponsored">Il libro su Amazon</a>
+<a class="btn green" href="https://eduki.com/it/material/2441856/calendario-avvento---specchio-e-finestra" target="_blank" rel="noopener">Il PDF su Eduki</a></div>
+</section>
+
+<div class="lights" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+</main>
+<script>
+(function(){var s=document.getElementById('snow');if(!s)return;var f=['❄','❅','❆','•'];
+for(var i=0;i<28;i++){var e=document.createElement('i');e.textContent=f[i%4];e.style.left=(Math.random()*100)+'vw';
+e.style.fontSize=(10+Math.random()*16)+'px';e.style.animationDuration=(8+Math.random()*10)+'s';e.style.animationDelay=(-Math.random()*18)+'s';s.appendChild(e);}})();
+</script>
+<footer><div class="in"><p>© 2026 Life School Family. Tutti i diritti riservati.</p><p>Risorse create da Life School Family: diffondi il piacere di imparare, non il file.</p><p><a href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a> · <a href="../privacy/index.html">Privacy</a></p></div></footer>
+</body></html>

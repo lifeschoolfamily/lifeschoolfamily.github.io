@@ -117,6 +117,19 @@ footer a{font-weight:700}
     </div>
   </section>
 
+
+  <section class="card" id="avvento" hidden style="background:#B91C1C;color:#fff">
+    <div class="side2">
+      <img src="img/mary-natale.webp" alt="" style="border:3px solid var(--ink);border-radius:16px;box-shadow:3px 3px 0 var(--ink)">
+      <div class="txt">
+        <h2 style="color:#FFF3BF">🎄 Il nostro Calendario dell'Avvento</h2>
+        <p>24 giorni per conoscersi, crescere e volersi bene, in famiglia.</p>
+        <a class="btn green" href="calendario-avvento/index.html">Scopri il calendario</a>
+      </div>
+    </div>
+  </section>
+  <script>(function(){var d=new Date(),m=d.getMonth(),g=d.getDate();var a=(m===9&&g>=15)||m===10;if(/[?&]avvento=1/.test(location.search))a=true;if(a)document.getElementById('avvento').hidden=false;})();</script>
+
   <img class="banner" id="bannerFamiglia" src="img/famiglia/autunno.webp" width="1100" height="738" alt="La famiglia di Life School Family disegnata ad acquerello">
   <script>
   /* Banner di stagione: cambia da solo in base alla data. Date decise con Mary. */
@@ -246,6 +259,6 @@ footer a{font-weight:700}
   })}
 })();
 </script>
-<script src="js/voce.js" data-pagina="home" data-base="audio/voce/" defer></script>
+<script src="js/voce.js?v=2" data-pagina="home" data-base="audio/voce/" defer></script>
 </body>
 </html>

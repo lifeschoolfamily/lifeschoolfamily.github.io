@@ -6,7 +6,7 @@
   var main=document.querySelector('main'); if(!main) return;
   var mappa=[]; // [elemento, codice audio, dove mettere il pulsante]
   if(pagina==='home'){
-    var cards=main.querySelectorAll(':scope > section');
+    var cards=main.querySelectorAll(':scope > section:not(#avvento)');
     for(var i=0;i<5&&i<cards.length;i++) mappa.push([cards[i],'home-'+(i+1),'card']);
   } else if(pagina==='chi'){
     var secs=main.querySelectorAll(':scope > section');
