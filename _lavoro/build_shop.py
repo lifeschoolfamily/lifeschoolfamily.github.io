@@ -16,12 +16,13 @@ def cats(t):
     if re.search(r'caccia al tesoro|avvento|biglietto|ded|caa',T): c.append('altro')
     if 'arte' in c and 'storia' in c and 'kit multimodale arte' in T: c.remove('storia')
     return c or ['altro']
-items=[]
+items=[];free_items=[]
 for x in d:
     pid=x['path'].split('/')[0]
     pr=x['price']; free=bool(re.search(r'grat',pr,re.I))
     title=re.sub(r'\s*_\s*',' · ',x['title']).replace('[GRATIS] ','').strip(' ·')
-    items.append(dict(id=pid,t=title,p='Gratis' if free else pr,f=free,pg=x['pages'],n='Nuovo' in x['label'],b='Bestseller' in x['label'],k=('bundle' in x['title'].lower() or 'kit scienze' in x['title'].lower() or 'kit multimodale: viaggio' in x['title'].lower()),c=cats(x['title']),u='https://eduki.com/it/materiale/'+x['path']))
+    it=dict(id=pid,t=title,p='Gratis' if free else pr,f=free,pg=x['pages'],n='Nuovo' in x['label'],b='Bestseller' in x['label'],k=('bundle' in x['title'].lower() or 'kit scienze' in x['title'].lower() or 'kit multimodale: viaggio' in x['title'].lower()),c=cats(x['title']),u='https://eduki.com/it/materiale/'+x['path'])
+    (free_items if free else items).append(it)
 CSS='''
 .shop-tools{display:flex;flex-direction:column;gap:10px}
 .search{width:100%;font:inherit;font-size:17px;border:3px solid var(--ink);border-radius:14px;padding:12px 14px;background:#fff}
@@ -42,7 +43,7 @@ CSS='''
 .tag{position:absolute;top:16px;left:16px;font-size:11px;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:2px 8px;background:var(--yellow)}
 .tag.new{background:var(--green);color:#fff}
 '''
-chips=[('','Tutti'),('gratis','Gratis'),('nuovi','Novità'),('bundle','Pacchetti')]+CATS
+chips=[('','Tutti'),('nuovi','Novità'),('bundle','Pacchetti')]+CATS
 btns=''.join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if not k else "false"}">{n}</button>' for k,n in chips)
 body=f'''<section class="card">
   <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
@@ -79,3 +80,6 @@ from collections import Counter
 print(len(items), Counter(c for i in items for c in i['c']), sum(i['f'] for i in items),'gratis', sum(i['k'] for i in items),'bundle')
 for i in items:
     if i['c']==['altro']: print('ALTRO:',i['t'])
+
+json.dump(free_items,open(os.path.join(os.path.dirname(DATA),'eduki_gratis.json'),'w'),ensure_ascii=False,indent=0)
+print('gratis tolti:',[i['t'] for i in free_items])
