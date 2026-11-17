@@ -1,4 +1,4 @@
-/* Dopo le medie? Tre strade per te! — testi e dati del test (Life School Family) */
+/* Dopo le medie? Tre strade per te! - testi e dati del test (Life School Family) */
 var LSF = {};
 
 /* Link e dati da completare: lasciare "" finché non sono pronti */
