@@ -8,6 +8,10 @@
   if(pagina==='home'){
     var cards=main.querySelectorAll(':scope > section:not(#avvento)');
     for(var i=0;i<5&&i<cards.length;i++) mappa.push([cards[i],'home-'+(i+1),'card']);
+    var av=document.getElementById('avvento'); if(av) mappa.push([av,'home-avvento','card']);
+  } else if(pagina==='avvento'){
+    var asecs=main.querySelectorAll(':scope > section');
+    for(var a=0;a<4&&a<asecs.length;a++) mappa.push([asecs[a],'avvento-'+(a+1),'card']);
   } else if(pagina==='chi'){
     var secs=main.querySelectorAll(':scope > section');
     if(secs.length) mappa.push([secs[0],'chi-0','card']);
@@ -49,7 +53,7 @@
       e.preventDefault(); e.stopPropagation();
       var sigla=document.getElementById('sigla'); if(sigla&&!sigla.paused) sigla.pause();
       if(attivo===b && !audio.paused){ audio.pause(); return; }
-      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=2'; }
+      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=3'; }
       audio.play().catch(function(){ ferma(); });
     });
     if(m[2]==='summary'){ var s=el.querySelector('summary'); if(s) s.appendChild(b); }
