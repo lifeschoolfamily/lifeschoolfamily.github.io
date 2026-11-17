@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il blog | Life School Family</title><meta name="description" content="Il blog di Life School Family: neurodiversità, ADHD, DSA, autismo, plusdotazione, istruzione parentale, materiali inclusivi e vita di famiglia.">
+<link rel="icon" href="../img/logo.png"><link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{--ink:#111;--red:#E02424;--green:#008744;--blue:#4361EE;--tint:#F3F5FF;--yellow:#FFF3BF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--tint);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font-size:16px;line-height:1.45;-webkit-text-size-adjust:100%}
+h1,h2,h3,p{margin:0}
+a{color:var(--ink)}
+.strip{background:var(--yellow);border-bottom:3px solid var(--ink);padding:7px 12px;text-align:center;font-weight:700;font-size:14px}
+.strip b{color:var(--red)}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:3px solid var(--ink)}
+.bar{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 14px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0}
+.brand img.lg{height:42px}.brand img.sc{height:15px;max-width:180px}
+.menu-btn{margin-left:auto;min-height:44px;border:3px solid var(--ink);border-radius:14px;background:#fff;font:inherit;font-weight:800;font-size:15px;padding:4px 12px;box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;gap:8px;cursor:pointer}
+nav{display:none;border-top:3px solid var(--ink);background:#fff}
+nav.open{display:block}
+nav ul{list-style:none;margin:0 auto;max-width:720px;padding:10px 14px 14px;display:flex;flex-direction:column;gap:8px}
+nav a{display:block;border:2.5px solid var(--ink);border-radius:14px;padding:9px 14px;font-weight:700;text-decoration:none;background:#fff}
+nav a.here{background:var(--blue);color:#fff}
+.wrap{max-width:720px;margin:0 auto;padding:18px 14px 40px;display:flex;flex-direction:column;gap:22px}
+.card{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:14px;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;gap:12px}
+.tint{background:var(--tint)}.yellow{background:var(--yellow)}
+.bars{display:flex;gap:8px}.bars i{width:56px;height:10px;border:2px solid var(--ink);border-radius:999px}
+h1{font-size:24px;line-height:1.12;font-weight:800;letter-spacing:-.5px}
+h2{font-size:20px;line-height:1.15;font-weight:800}
+h3{font-size:16.5px;font-weight:800;line-height:1.2}
+.hero{display:flex;align-items:flex-end;gap:12px}
+.hero .txt{display:flex;flex-direction:column;gap:12px;flex:1}
+.hero img{width:100px;flex:0 0 auto}
+.lead{font-weight:600}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;border:3px solid var(--ink);border-radius:16px;background:#fff;font-weight:800;font-size:17px;padding:8px 16px;text-decoration:none;text-align:center;box-shadow:4px 4px 0 var(--ink)}
+.btn.green{background:var(--green);color:#fff}.btn.blue{background:var(--blue);color:#fff}.btn.red{background:var(--red);color:#fff}
+.btn:focus-visible,nav a:focus-visible,.menu-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pts{display:flex;flex-direction:column;gap:14px}
+.pt{display:flex;gap:12px;align-items:flex-start}
+.pt .dot{width:34px;height:34px;border:2.5px solid var(--ink);border-radius:999px;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.pt b{display:block;font-weight:800;line-height:1.3}
+.side{display:flex;gap:12px;align-items:flex-end}
+.side .txt{flex:1;display:flex;flex-direction:column;gap:10px}
+.side img{width:96px;flex:0 0 auto}
+.posts{display:flex;flex-direction:column;gap:10px}
+.post{display:flex;flex-direction:column;gap:2px;border:2.5px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff;text-decoration:none}
+.post small{font-size:13px;font-weight:700;color:#444}
+.post span{font-weight:800;line-height:1.25}
+.video{position:relative;aspect-ratio:16/9;border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;background:#fff;text-decoration:none;font-size:15px}
+.chip i{width:24px;height:24px;border-radius:999px;border:2px solid var(--ink)}
+.pic{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);background:#fff}
+.ph{border:3px dashed var(--ink);border-radius:16px;padding:22px 14px;text-align:center;font-weight:700;color:#555;background:#fff}
+footer{border-top:3px solid var(--ink);background:#fff}
+footer .in{max-width:720px;margin:0 auto;padding:18px 14px 28px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+footer a{font-weight:700}
+@media (min-width:720px){.hero img{width:140px}h1{font-size:30px}}
+.sigla-btn{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font:inherit;font-weight:800;font-size:15px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}.sigla-btn svg{width:20px;height:20px}.sigla-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+.crumb{font-size:15px;font-weight:700}
+.meta{font-size:14px;font-weight:700;color:#444}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.tpill{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:999px;padding:3px 12px;font-size:13px;font-weight:800;color:#fff;text-decoration:none}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:14px;font-weight:800;border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px;background:#fff;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:#fff}
+.plist{display:flex;flex-direction:column;gap:16px}
+.pcard{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}
+.pcard h2{font-size:19px;line-height:1.2}
+.pcard p.ex{font-size:16px;color:#222}
+.more{font-weight:800;color:var(--blue)}
+article.body{font-size:17px;line-height:1.6}
+article.body > * + *{margin-top:14px}
+article.body h2{font-size:21px;margin-top:26px}
+article.body h3{font-size:18px;margin-top:22px}
+article.body h4{font-size:18px;margin-top:18px}
+article.body ul,article.body ol{padding-left:24px}
+article.body li + li{margin-top:6px}
+article.body figure{margin:18px 0}
+article.body figure img{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:16px;background:var(--tint);min-height:60px}
+article.body hr{border:0;border-top:3px dashed var(--ink);margin:24px 0}
+.thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:3px solid var(--ink);border-radius:14px;background:var(--tint)}
+.keys{font-size:13px;color:#555}
+</style></head><body>
+<div class="strip" id="bfstrip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div><script>if(Date.now()>=new Date(2026,10,30).getTime()){var bf=document.getElementById("bfstrip");if(bf)bf.remove();}</script>
+<header><div class="bar"><a class="brand" href="../index.html"><img class="lg" src="../img/logo.png" alt="Logo Life School Family"><img class="sc" src="../img/scritta.png" alt="Life School Family"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="menu" onclick="var n=document.getElementById('menu');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰ Menu</button></div>
+<nav id="menu"><ul><li><a href="../index.html">Home</a></li><li><a href="../chi-sono/index.html">Chi sono</a></li><li><a href="../materiali/index.html">Materiali</a></li><li><a href="../libri/index.html">Libri</a></li><li><a href="../consigliati/index.html">Consigliati</a></li><li><a href="../materiali-omaggio/index.html">Materiali omaggio</a></li><li><a class="here" href="../blog/index.html">Blog</a></li><li><a href="https://lifeschoolfamily.github.io/tre-strade/">Quiz orientamento</a></li><li><a href="../contatti/index.html">Contatti e social</a></li></ul></nav></header>
+<main class="wrap">
+<section class="card">
+  <div class="bars" aria-hidden="true"><i style="background:#FF3131"></i><i style="background:#00BF63"></i><i style="background:#5170FF"></i></div>
+  <h1>Il blog</h1>
+  <p class="lead">Neurodiversità, istruzione parentale, materiali e vita di famiglia.</p>
+</section>
+<div class="filters" role="group" aria-label="Scegli un tema"><button type="button" data-t="" aria-pressed="true">Tutti</button><button type="button" data-t="neurodiversita" aria-pressed="false">Capire la neurodiversità</button><button type="button" data-t="adhd-dsa" aria-pressed="false">ADHD, DSA, autismo, plusdotazione</button><button type="button" data-t="istruzione-parentale" aria-pressed="false">Istruzione parentale</button><button type="button" data-t="materiali-metodo" aria-pressed="false">Materiali e metodo</button><button type="button" data-t="esperimenti" aria-pressed="false">Esperimenti e scienze</button><button type="button" data-t="famiglia" aria-pressed="false">Vita di famiglia</button></div>
+<div class="plist"><a class="card pcard" href="dalla-fiaba-alla-scienza-perche-olio-e/index.html" data-temi="esperimenti">
+  <img class="thumb" src="img/dalla-fiaba-alla-scienza-perche-olio-e/1.webp" alt="" loading="lazy">
+  <span class="meta">11 novembre 2026</span>
+  <h2>Dalla fiaba alla scienza: perché olio e acqua non si mescolano? (Ispirato a &quot;La gabbianella e il gatto&quot;)</h2>
+  <p class="ex">Leggere un grande classico della letteratura per ragazzi come “Storia di una gabbianella e del gatto che le insegnò a volare” di Luis Sepúlveda offre spunti meravigliosi che vanno ben oltre…</p>
+  <div class="pills"><span class="tpill" style="background:#E07A00">Esperimenti e scienze</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="quando-leccellenza-diventa-veleno/index.html" data-temi="famiglia">
+  <img class="thumb" src="img/quando-leccellenza-diventa-veleno/1.webp" alt="" loading="lazy">
+  <span class="meta">1 giugno 2026</span>
+  <h2>Quando l&#x27;eccellenza diventa veleno: Perché Beatrice ha scelto il Tatami (e la sua dignità)</h2>
+  <p class="ex">C’è un confine sottile, quasi invisibile, tra l’esigenza di un istruttore e l’abuso psicologico. È una linea tracciata sulla sabbia che spesso, nel nome del &quot;talento&quot;, della &quot;perfezione…</p>
+  <div class="pills"><span class="tpill" style="background:#C2185B">Vita di famiglia</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="adhd-quello-che-nessuno-ti-dice-finche/index.html" data-temi="adhd-dsa">
+  <img class="thumb" src="img/adhd-quello-che-nessuno-ti-dice-finche/1.webp" alt="" loading="lazy">
+  <span class="meta">3 maggio 2026</span>
+  <h2>ADHD: Quello che nessuno ti dice finché non lo vivi sulla pelle. LA TUA!!!</h2>
+  <p class="ex">C&#x27;è una scena che si ripete in questa casa con una frequenza che ormai dovrei segnare sul calendario. Ginevra entra in cucina come se stesse sfuggendo a qualcosa — gambe che vanno più…</p>
+  <div class="pills"><span class="tpill" style="background:var(--red)">ADHD, DSA, autismo, plusdotazione</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="dsa-non-e-pigrizia-e-un-cervello-che/index.html" data-temi="adhd-dsa">
+  <img class="thumb" src="img/dsa-non-e-pigrizia-e-un-cervello-che/1.webp" alt="" loading="lazy">
+  <span class="meta">27 aprile 2026</span>
+  <h2>DSA: Non È Pigrizia. È un Cervello che Chiede un&#x27;Altra Porta.</h2>
+  <p class="ex">Avevo diciassette anni e facevo la doposcuolista. Andavo nelle case, mi sedevo ai tavoli della cucina, aprivo i diari scolastici e cercavo di rimettere insieme i pezzi di bambini che dalla…</p>
+  <div class="pills"><span class="tpill" style="background:var(--red)">ADHD, DSA, autismo, plusdotazione</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="in-istruzione-parentale-la-colpa-e/index.html" data-temi="istruzione-parentale">
+  <img class="thumb" src="img/in-istruzione-parentale-la-colpa-e/1.webp" alt="" loading="lazy">
+  <span class="meta">20 aprile 2026</span>
+  <h2>In Istruzione Parentale la colpa è sempre della mamma (e perché questo è il nostro superpotere)</h2>
+  <p class="ex">Ci sono mattine in cui mi siedo al tavolo della cucina con il mio caffè ancora caldo, guardo i miei figli e penso: &quot;Oggi andrà bene. Oggi saremo tutti e quattro sereni, produttivi, in…</p>
+  <div class="pills"><span class="tpill" style="background:var(--green)">Istruzione parentale</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="plusdotazione-perche-il-qi-di-tuo/index.html" data-temi="adhd-dsa">
+  <img class="thumb" src="img/plusdotazione-perche-il-qi-di-tuo/1.webp" alt="" loading="lazy">
+  <span class="meta">13 aprile 2026</span>
+  <h2>Plusdotazione: Perché il QI di tuo figlio è solo l&#x27;inizio della storia</h2>
+  <p class="ex">Il caffè si raffredda sul bancone. Questo è il dettaglio che ricordo meglio di quella mattina. Non le parole esatte di Beatrice, non la luce che entrava dalla finestra della cucina — il…</p>
+  <div class="pills"><span class="tpill" style="background:var(--red)">ADHD, DSA, autismo, plusdotazione</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="pasqua-tra-big-bang-lasagne-e-il/index.html" data-temi="famiglia">
+  <img class="thumb" src="img/pasqua-tra-big-bang-lasagne-e-il/1.webp" alt="" loading="lazy">
+  <span class="meta">6 aprile 2026</span>
+  <h2>Pasqua: Tra Big Bang, lasagne e il diritto di rifugiarsi sotto il tavolo</h2>
+  <p class="ex">C’è una domanda che mi ronza in testa ogni volta che si avvicina una festività: come si trasmette il senso del sacro senza trasformarlo in un dogma calato dall&#x27;alto? Come si fa a raccontare…</p>
+  <div class="pills"><span class="tpill" style="background:#C2185B">Vita di famiglia</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="la-neurodiversita-non-e-un-guasto-e-un/index.html" data-temi="neurodiversita materiali-metodo">
+  <img class="thumb" src="img/la-neurodiversita-non-e-un-guasto-e-un/1.webp" alt="" loading="lazy">
+  <span class="meta">30 marzo 2026</span>
+  <h2>La neurodiversità non è un guasto: è un codice (e io ho imparato a decifrarlo così)</h2>
+  <p class="ex">Se stai leggendo queste righe, probabilmente ieri sera sei andata a dormire con quella strana sensazione al petto. Quella miscela di amore infinito e stanchezza che ti fa chiedere: “Ma sto…</p>
+  <div class="pills"><span class="tpill" style="background:var(--blue)">Capire la neurodiversità</span><span class="tpill" style="background:#7B3FE4">Materiali e metodo</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="la-mia-roccia-il-ruolo-del-papa-nel/index.html" data-temi="famiglia">
+  <img class="thumb" src="img/la-mia-roccia-il-ruolo-del-papa-nel/1.webp" alt="" loading="lazy">
+  <span class="meta">23 marzo 2026</span>
+  <h2>La Mia Roccia: Il ruolo del papà nel percorso della neurodiversità (Autismo e ADHD).</h2>
+  <p class="ex">Ciao a tutti, anime coraggiose! Oggi voglio parlarvi di un sostegno fondamentale nella mia vita, la mia roccia, il mio Francesco. In questo percorso neurodivergente, spesso l&#x27;attenzione è…</p>
+  <div class="pills"><span class="tpill" style="background:#C2185B">Vita di famiglia</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="quando-lintuizione-dellamore-vale-piu/index.html" data-temi="adhd-dsa">
+  <img class="thumb" src="img/quando-lintuizione-dellamore-vale-piu/1.webp" alt="" loading="lazy">
+  <span class="meta">16 marzo 2026</span>
+  <h2>Quando l&#x27;Intuizione dell&#x27;Amore Vale Più di Mille Pareri: La Nostra Odissea Verso la Diagnosi</h2>
+  <p class="ex">Ciao a tutti, anime coraggiose! Oggi voglio condividere con voi un momento cruciale della mia vita, uno di quelli che ti cambiano la prospettiva e ti fanno sentire un po&#x27; una profetessa (e…</p>
+  <div class="pills"><span class="tpill" style="background:var(--red)">ADHD, DSA, autismo, plusdotazione</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="eccoli-qui-vi-presento-i-miei-tre/index.html" data-temi="famiglia">
+  <img class="thumb" src="img/eccoli-qui-vi-presento-i-miei-tre/1.webp" alt="" loading="lazy">
+  <span class="meta">2 marzo 2026</span>
+  <h2>Eccoli Qui! Vi Presento i Miei Tre Uragani di Creatività (e Neurodivergenza!)</h2>
+  <p class="ex">Ciao a tutti, anime in ascolto! Qui la vostra Mary, mamma di tre creature fantastiche che mi fanno girare la testa (e il cuore!) ogni singolo giorno. Avete letto un po&#x27; delle nostre…</p>
+  <div class="pills"><span class="tpill" style="background:#C2185B">Vita di famiglia</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="perche-i-materiali-inclusivi-sono-la/index.html" data-temi="materiali-metodo">
+  <img class="thumb" src="img/perche-i-materiali-inclusivi-sono-la/1.webp" alt="" loading="lazy">
+  <span class="meta">16 febbraio 2026</span>
+  <h2>Perché i Materiali Inclusivi sono la Nostra Bacchetta Magica?</h2>
+  <p class="ex">Ciao a tutti, neuro-mamme, neuro-papà e maestri ninja! Qui la vostra Mary, mamma di tre vulcani neurodivergenti (e sì, ho anche passato anni a fare la doposcuolista, ne ho viste di tutti i…</p>
+  <div class="pills"><span class="tpill" style="background:#7B3FE4">Materiali e metodo</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="essere-non-avere-perche-la/index.html" data-temi="neurodiversita">
+  <img class="thumb" src="img/essere-non-avere-perche-la/1.webp" alt="" loading="lazy">
+  <span class="meta">2 febbraio 2026</span>
+  <h2>&quot;Essere&quot; Non &quot;Avere&quot;: Perché la Neurodivergenza È un Modo di Esistere (e Non una Condizione!)</h2>
+  <p class="ex">Ciao a tutti, custodi di menti uniche! Qui la vostra Mary, mamma di Beatrice , Ginevra e Federico . Oggi voglio parlarvi di qualcosa che mi sta a cuore profondamente, qualcosa che ha…</p>
+  <div class="pills"><span class="tpill" style="background:var(--blue)">Capire la neurodiversità</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="il-linguaggio-segreto-della/index.html" data-temi="neurodiversita">
+  <img class="thumb" src="img/il-linguaggio-segreto-della/1.webp" alt="" loading="lazy">
+  <span class="meta">19 gennaio 2026</span>
+  <h2>Il Linguaggio Segreto della Neurodiversità: Comprendere per Connettersi.</h2>
+  <p class="ex">Decifrare i segnali e i bisogni unici dei bambini neurodivergenti per costruire relazioni significative. Oggi parliamo di un tema che mi sta a cuore, perché è la chiave di volta per…</p>
+  <div class="pills"><span class="tpill" style="background:var(--blue)">Capire la neurodiversità</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a><a class="card pcard" href="life-school-family-quando-la-vita-la/index.html" data-temi="istruzione-parentale">
+  <img class="thumb" src="img/life-school-family-quando-la-vita-la/1.webp" alt="" loading="lazy">
+  <span class="meta">5 gennaio 2026</span>
+  <h2>Life School Family: Quando la Vita, la Scuola e la Famiglia Si Incontrano (e si Accende la Magia dell&#x27;Apprendimento!)</h2>
+  <p class="ex">Ciao a tutti, anime in cammino e cuori che credono nell&#x27;educazione! Qui la vostra Mary. Se c&#x27;è una cosa che ho imparato in oltre vent&#x27;anni di vita immersa nel mondo dell&#x27;infanzia, è che la…</p>
+  <div class="pills"><span class="tpill" style="background:var(--green)">Istruzione parentale</span></div>
+  <span class="more">Leggi l'articolo →</span>
+</a></div>
+<script>
+(function(){var b=document.querySelectorAll('.filters button'),c=document.querySelectorAll('.pcard');
+function show(t){b.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.t===t)});
+c.forEach(function(x){x.style.display=(!t||x.dataset.temi.split(' ').indexOf(t)>=0)?'':'none'})}
+b.forEach(function(x){x.addEventListener('click',function(){show(x.dataset.t);try{history.replaceState(null,'',x.dataset.t?'#'+x.dataset.t:location.pathname)}catch(e){}})});
+function fromHash(){var h=location.hash.slice(1);show(document.querySelector('.filters button[data-t="'+h+'"]')?h:'')}
+window.addEventListener('hashchange',fromHash);fromHash();})();
+</script>
+</main>
+<footer><div class="in"><p>© 2026 Life School Family. Tutti i diritti riservati.</p><p>Risorse create da Life School Family: diffondi il piacere di imparare, non il file.</p><p><a href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a> · <a href="../privacy/index.html">Privacy</a></p></div></footer>
+</body></html>
