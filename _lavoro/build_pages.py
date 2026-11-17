@@ -70,8 +70,11 @@ for g in groups:
     body+='<div class="mgrid">'+''.join(card(*m) for m in g)+'</div>\n'+PLAT+'\n'
 import json as _j
 _F=[x for x in _j.load(open('/home/claude/shop/eduki_gratis.json',encoding='utf-8')) if x['id'] not in ('1941197','1486393','1941213','1943617')]
+_E=_j.load(open('/home/claude/shop/edudoro_gratis.json',encoding='utf-8'))
 if _F:
     body+='<div class="mgrid">'+''.join(f'<div class="mcard"><img src="../img/eduki/{x["id"]}.webp" alt="{html.escape(x["t"])}" loading="lazy"><h3>{html.escape(x["t"])}</h3><a class="btn green" href="{x["u"]}" target="_blank" rel="noopener">Scarica Gratis</a></div>' for x in _F)+'</div>\n'+PLAT+'\n'
+if _E:
+    body+='<div class="mgrid">'+''.join(f'<div class="mcard"><img src="../img/edudoro/{x["id"]}.webp" alt="{html.escape(x["t"])}" loading="lazy" style="object-fit:contain;object-position:center;background:#fff"><h3>{html.escape(x["t"])}</h3><a class="btn green" href="{x["u"]}" target="_blank" rel="noopener">Scarica Gratis</a></div>' for x in _E)+'</div>\n'+PLAT+'\n'
 body+='''<h2 id="guide-gratuite">Guide Pratiche Gratuite</h2>
 <section class="card guide">
   <img src="../img/materiali/g01.webp" alt="Bambini Neurodivergenti ai Campi Estivi" loading="lazy">
