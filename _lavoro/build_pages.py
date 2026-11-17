@@ -21,7 +21,7 @@ CSS_EXTRA='''
 .idx{display:flex;flex-wrap:wrap;gap:8px}
 .idx a{border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:800;background:#fff;text-decoration:none;font-size:14px}
 '''
-def page(out, title, desc, here, body, noindex=False):
+def page(out, title, desc, here, body, noindex=False, js=''):
     h=head
     h=re.sub(r'<title>.*?</title>',f'<title>{html.escape(title)}</title>',h,flags=re.S)
     h=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{html.escape(desc)}">',h)
@@ -36,7 +36,7 @@ def page(out, title, desc, here, body, noindex=False):
         for a in ('href="../','src="../'):
             h=h.replace(a,a.replace('../','../../')); f=f.replace(a,a.replace('../','../../'))
     os.makedirs(os.path.dirname(out),exist_ok=True)
-    open(out,'w',encoding='utf-8').write(h+'<main class="wrap">\n'+body+'\n</main>'+f)
+    open(out,'w',encoding='utf-8').write(h+'<main class="wrap">\n'+body+'\n</main>'+(f.replace('</body>',js+'\n</body>') if js else f))
 
 MAT=[('m01','Colori Primari e Secondari','1h2qfkq2Jnt4kKxM0Vly9tkNM02pE24MQ'),
 ('m02','Mappa Fonti Storiche + attività','1pPKHSA0P74E2fRDXMDAUJPIBIE-D72F6'),
@@ -171,7 +171,7 @@ body4='''<section class="card">
   <a class="btn blue" href="../contatti/index.html">Scrivimi</a>
   <a class="btn green" href="../contatti/index.html#newsletter">Iscriviti alla newsletter</a>
 </section>'''
-page(os.path.join(SITE,'chi-sono','index.html'),'Chi sono | Life School Family',"Mary, Maria Silvia Santi: educatrice, Tata Mary dal 2011, mamma in istruzione parentale e fondatrice di Life School Family.",'Chi sono',body4)
+page(os.path.join(SITE,'chi-sono','index.html'),'Chi sono | Life School Family',"Mary, Maria Silvia Santi: educatrice, Tata Mary dal 2011, mamma in istruzione parentale e fondatrice di Life School Family.",'Chi sono',body4,js='<script src="../js/voce.js" data-pagina="chi" data-base="../audio/voce/" defer></script>')
 print('chi sono ok')
 
 # ================= LIBRI =================
