@@ -12,6 +12,9 @@
   } else if(pagina==='avvento'){
     var asecs=main.querySelectorAll(':scope > section');
     for(var a=0;a<4&&a<asecs.length;a++) mappa.push([asecs[a],'avvento-'+(a+1),'card']);
+  } else if(pagina==='blog'){
+    var prima=main.querySelector(':scope > section');
+    if(prima) mappa.push([prima,me.getAttribute('data-audio'),'card']);
   } else if(pagina==='chi'){
     var secs=main.querySelectorAll(':scope > section');
     if(secs.length) mappa.push([secs[0],'chi-0','card']);
@@ -38,8 +41,8 @@
 
   function aspetto(b,suona){
     b.setAttribute('aria-pressed',suona?'true':'false');
-    b.innerHTML=(suona?PAUSA:ICO)+'<span>'+(suona?'Pausa':'Ascolta')+'</span>';
-    b.setAttribute('aria-label',suona?'Metti in pausa la lettura':'Ascolta questo riquadro letto da Mary');
+    b.innerHTML=(suona?PAUSA:ICO)+'<span>'+(suona?'Pausa':(pagina==='blog'?'Ascolta l\'articolo':'Ascolta'))+'</span>';
+    b.setAttribute('aria-label',suona?'Metti in pausa la lettura':(pagina==='blog'?'Ascolta l\'articolo letto da Mary':'Ascolta questo riquadro letto da Mary'));
   }
   function ferma(){ if(attivo){aspetto(attivo,false);} }
   audio.addEventListener('ended',function(){ferma();attivo=null;});
@@ -53,7 +56,7 @@
       e.preventDefault(); e.stopPropagation();
       var sigla=document.getElementById('sigla'); if(sigla&&!sigla.paused) sigla.pause();
       if(attivo===b && !audio.paused){ audio.pause(); return; }
-      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=3'; }
+      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=4'; }
       audio.play().catch(function(){ ferma(); });
     });
     if(m[2]==='summary'){ var s=el.querySelector('summary'); if(s) s.appendChild(b); }
