@@ -72,7 +72,7 @@ article.body hr{border:0;border-top:3px dashed var(--ink);margin:24px 0}
 
 def header(root, here):
     voci = [("Home", root + "index.html"), ("Chi sono", root + "chi-sono/index.html"), ("Il test", "https://lifeschoolfamily.github.io/tre-strade/"),
-            ("Materiali", root + "materiali/index.html"), ("Materiali omaggio", root + "materiali-omaggio/index.html"),
+            ("Materiali", root + "materiali/index.html"), ("Libri", root + "libri/index.html"), ("Consigliati", root + "consigliati/index.html"), ("Materiali omaggio", root + "materiali-omaggio/index.html"),
             ("Blog", root + "blog/index.html"), ("Contatti e social", root + "contatti/index.html")]
     li = "".join(f'<li><a{" class=\"here\"" if n == here else ""} href="{u}">{n}</a></li>' for n, u in voci)
     return f'''<div class="strip">BLACK FRIDAY EDUKI!!! Fino a domenica 29 novembre tutto al 50% con il codice <b>LIFE_K924V7</b></div>
@@ -80,19 +80,19 @@ def header(root, here):
 <button class="menu-btn" aria-expanded="false" aria-controls="menu" onclick="var n=document.getElementById('menu');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰ Menu</button></div>
 <nav id="menu"><ul>{li}</ul></nav></header>'''
 
-FOOTER = '''<footer><div class="in"><p>© 2026 Life School Family. Tutti i diritti riservati.</p><p>Risorse create da Life School Family: diffondi il piacere di imparare, non il file.</p><p><a href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a></p></div></footer>'''
+FOOTER_T = '''<footer><div class="in"><p>© 2026 Life School Family. Tutti i diritti riservati.</p><p>Risorse create da Life School Family: diffondi il piacere di imparare, non il file.</p><p><a href="mailto:lifeschoolfamily.shop@gmail.com">lifeschoolfamily.shop@gmail.com</a> · <a href="{root}privacy/index.html">Privacy</a></p></div></footer>'''
 
 def page(title, desc, root, here, body, extra_head=""):
     return f'''<!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">
-<link rel="icon" href="{root}img/logo.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
+<link rel="icon" href="{root}img/logo.png"><link rel="stylesheet" href="{root}fonts/fonts.css">
 {extra_head}<style>{CSS}</style></head><body>
 {header(root, here)}
 <main class="wrap">
 {body}
 </main>
-{FOOTER}
+{FOOTER_T.replace('{root}',root)}
 </body></html>'''
 
 KEEP = {"p", "h2", "h3", "h4", "ul", "ol", "li", "b", "strong", "i", "em", "a", "br", "hr", "blockquote"}
