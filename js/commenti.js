@@ -4,6 +4,8 @@
    (chiave = nome della cartella dell'articolo) e compaiono qui sotto. */
 (function () {
   var DEST = "https://formsubmit.co/ajax/lifeschoolfamily.shop@gmail.com";
+  /* modulo Brevo "Materiali omaggio" (newsletter + materiali omaggio) */
+  var BREVO = "https://077c5c83.sibforms.com/serve/MUIFANq45jkBJOM0lQjtImPOak8nERttZViUr-Q0QuH1I_T6nMQEM8LgYo7VJt2GO87Ygu3lzlmDpsOsHxpqlHDzIilhtpo2qvgBssqJzCWTF_r7T-ELBm4dBW_yw41W0L0vFX_ybwApcS6l8LNlxdObGgtflDxpVfU1WNPXeCkDrb0DLfiZ7CJFKg2whKstnWEPUyqzsHqprY9-8g==";
   var art = document.querySelector("article.body");
   if (!art) return;
   var card = art.closest("section") || art;
@@ -24,7 +26,7 @@
     ".cm-empty{font-weight:600;color:#444}" +
     ".cm form{display:flex;flex-direction:column;gap:10px}" +
     ".cm label{font-weight:800}" +
-    ".cm input[type=text],.cm textarea{font:inherit;font-size:16px;border:2.5px solid var(--ink);border-radius:12px;padding:10px 12px;width:100%;background:#fff}" +
+    ".cm input[type=text],.cm input[type=email],.cm textarea{font:inherit;font-size:16px;border:2.5px solid var(--ink);border-radius:12px;padding:10px 12px;width:100%;background:#fff}" +
     ".cm textarea{min-height:130px;resize:vertical}" +
     ".cm .ok{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15px}" +
     ".cm .ok input{width:22px;height:22px;flex:0 0 auto;margin-top:1px}" +
@@ -48,6 +50,9 @@
     '<input type="text" id="cm-nome" name="Nome" maxlength="60" autocomplete="given-name" required>' +
     '<label for="cm-testo">Il tuo commento</label>' +
     '<textarea id="cm-testo" name="Commento" maxlength="3000" required></textarea>' +
+    '<label for="cm-mail">La tua mail per ricevere la newsletter <span style="font-weight:600">(facoltativa)</span></label>' +
+    '<input type="email" id="cm-mail" name="Mail" maxlength="120" autocomplete="email" inputmode="email">' +
+    '<p class="nota">Se la scrivi, ti arrivano la mia newsletter e i materiali omaggio. Puoi cancellarti quando vuoi. Sotto il commento la mail non compare mai.</p>' +
     '<div class="hp" aria-hidden="true"><label>Non compilare<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>' +
     '<label class="ok"><input type="checkbox" id="cm-ok" required><span>Ho letto la <a href="../../privacy/index.html#commenti">privacy</a> e sono d\'accordo che il mio nome e il mio commento vengano pubblicati sotto l\'articolo.</span></label>' +
     '<p class="nota">I commenti li leggo io prima di pubblicarli, quindi potrebbe volerci qualche giorno.</p>' +
@@ -88,6 +93,21 @@
     .then(function (j) { mostra(j[slug]); })
     .catch(function () {});
 
+  /* iscrizione a Brevo con un modulo nascosto (niente problemi di CORS) */
+  function iscrivi(mail, nome) {
+    try {
+      var fr = document.createElement("iframe");
+      fr.name = "cm-brevo"; fr.style.display = "none"; fr.setAttribute("aria-hidden", "true");
+      document.body.appendChild(fr);
+      var f = document.createElement("form");
+      f.method = "POST"; f.action = BREVO; f.target = "cm-brevo"; f.style.display = "none";
+      [["EMAIL", mail], ["NOME", nome], ["email_address_check", ""], ["locale", "it"], ["html_type", "simple"]].forEach(function (x) {
+        var i = document.createElement("input"); i.type = "hidden"; i.name = x[0]; i.value = x[1]; f.appendChild(i);
+      });
+      document.body.appendChild(f);
+      f.submit();
+    } catch (e) {}
+  }
   function avviso(testo, ok) {
     esito.textContent = testo;
     esito.className = "esito " + (ok ? "si" : "no");
@@ -97,7 +117,9 @@
     e.preventDefault();
     var nome = form.Nome.value.trim();
     var testo = form.Commento.value.trim();
+    var mail = form.Mail.value.trim();
     if (form._honey.value) return;
+    if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { avviso("La mail non sembra giusta: controllala, oppure lascia il campo vuoto.", false); return; }
     if (!nome || !testo) { avviso("Scrivi il tuo nome e il commento, poi invia.", false); return; }
     if (!document.getElementById("cm-ok").checked) { avviso("Per inviare spunta la casella della privacy.", false); return; }
     bottone.disabled = true;
@@ -113,12 +135,14 @@
         Indirizzo: location.origin + location.pathname,
         Cartella: slug,
         Nome: nome,
-        Commento: testo
+        Commento: testo,
+        Newsletter: mail ? mail + " (iscritta/o anche su Brevo)" : "no"
       })
     })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         if (!x.ok || String(x.j.success) === "false") throw new Error(x.j.message || "errore");
+        if (mail) iscrivi(mail, nome);
         form.reset();
         avviso("Grazie! Ho ricevuto il tuo commento. Lo leggo e lo pubblico qui appena posso.", true);
         bottone.textContent = "Commento inviato";
