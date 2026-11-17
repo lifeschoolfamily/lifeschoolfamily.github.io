@@ -7,6 +7,7 @@
    - Natale: dal giorno dopo il Ringraziamento al 6/1
    - Inverno: 7/1 – 9/3 (tranne il Carnevale)
    - Carnevale: dalle 2 settimane prima del martedì grasso al martedì grasso
+   - San Valentino: 7/2 – 14/2 (se cade nel Carnevale, vince San Valentino)
    - San Patrizio: 10/3 – 17/3
    - Primavera: 18/3 – 20/6 (tranne Pasqua)
    - Pasqua: dai 7 giorni prima di Pasqua al lunedì dell'Angelo
@@ -31,6 +32,7 @@
     var y = o.getFullYear(), P = pasqua(y), grasso = gg(P, -47), TG = ringraziamento(y);
     function tra(a, b) { return o >= a && o <= b; }
     if (tra(gg(P, -7), gg(P, 1))) return 'pasqua';
+    if (tra(d(y, 2, 7), d(y, 2, 14))) return 'sanvalentino';
     if (tra(gg(grasso, -14), grasso)) return 'carnevale';
     if (tra(d(y, 3, 10), d(y, 3, 17))) return 'sanpatrizio';
     if (tra(d(y, 1, 1), d(y, 1, 6)) || tra(gg(TG, 1), d(y, 12, 31))) return 'natale';
@@ -50,6 +52,7 @@
     natale:       { bg: '#ECF7EF', e: ['🎄', '⭐', '❄️', '🎁'] },
     inverno:      { bg: '#EAF3FC', e: ['❄️', '⛄', '🧣', '❄️'] },
     carnevale:    { bg: '#FBEFFF', e: ['🎭', '🎉', '🎈', '🎊'] },
+    sanvalentino: { bg: '#FFEEF3', e: ['💗', '💌', '❤️', '🍫'] },
     sanpatrizio:  { bg: '#E9F8ED', e: ['☘️', '🍀', '🌈', '🪙'] },
     primavera:    { bg: '#FFF0F6', e: ['🌸', '🌷', '🦋', '🌼'] },
     pasqua:       { bg: '#F4EFFF', e: ['🐣', '🥚', '🌷', '🐰'] },
