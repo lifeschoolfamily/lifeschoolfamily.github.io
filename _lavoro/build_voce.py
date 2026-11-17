@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 SITE='/home/claude/anteprima'; OUT='/home/claude/voce'
 TAG='[slow, calm, warm pace] '
 def clean(t):
-    t=t.replace('€',' euro').replace('·',',').replace('→','').replace('«','"').replace('»','"')
+    t=t.replace('4mums','four mums').replace('€',' euro').replace('·',',').replace('→','').replace('«','"').replace('»','"')
     t=re.sub(r'https?://\S+','',t)
     t=re.sub(r'[\U0001F300-\U0001FAFF☀-➿️]','',t)
     t=re.sub(r'\s+',' ',t).strip()

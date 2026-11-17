@@ -49,7 +49,7 @@
       e.preventDefault(); e.stopPropagation();
       var sigla=document.getElementById('sigla'); if(sigla&&!sigla.paused) sigla.pause();
       if(attivo===b && !audio.paused){ audio.pause(); return; }
-      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=1'; }
+      if(attivo!==b){ ferma(); attivo=b; audio.src=base+cod+'.mp3?v=2'; }
       audio.play().catch(function(){ ferma(); });
     });
     if(m[2]==='summary'){ var s=el.querySelector('summary'); if(s) s.appendChild(b); }
