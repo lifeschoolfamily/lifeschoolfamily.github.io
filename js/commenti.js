@@ -4,8 +4,8 @@
    I commenti approvati da Mary si aggiungono a mano in blog/commenti.json
    (chiave = nome della cartella dell'articolo) e compaiono qui sotto. */
 (function () {
-  var DEST = "https://docs.google.com/forms/d/e/1FAIpQLSdkzggHNwGrUpjcjGpyEuZ-caEsesGO4uFP7RaC8YBKvFYb5g/formResponse";
-  var E = { articolo: "entry.617776837", nome: "entry.1450712138", commento: "entry.1130924656", mail: "entry.1025562040" };
+  var DEST = "https://docs.google.com/forms/d/e/1FAIpQLSdvEh4tC-o_prZx3bbnYdzxS3e4DsvNvUeSF-qRoY6FN9uqlg/formResponse";
+  var E = { articolo: "entry.980406699", nome: "entry.1617996346", commento: "entry.1637038581", mail: "entry.859030588" };
   /* modulo Brevo "Materiali omaggio" (newsletter + materiali omaggio) */
   var BREVO = "https://077c5c83.sibforms.com/serve/MUIFANq45jkBJOM0lQjtImPOak8nERttZViUr-Q0QuH1I_T6nMQEM8LgYo7VJt2GO87Ygu3lzlmDpsOsHxpqlHDzIilhtpo2qvgBssqJzCWTF_r7T-ELBm4dBW_yw41W0L0vFX_ybwApcS6l8LNlxdObGgtflDxpVfU1WNPXeCkDrb0DLfiZ7CJFKg2whKstnWEPUyqzsHqprY9-8g==";
   var art = document.querySelector("article.body");
