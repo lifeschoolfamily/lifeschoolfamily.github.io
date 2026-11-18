@@ -1,9 +1,11 @@
 /* Commenti del blog di Life School Family – modulo "fatto in casa".
-   Chi commenta scrive nome e commento: arriva una mail a Mary (FormSubmit).
+   Chi commenta scrive nome e commento: finiscono in un Google Modulo di Mary
+   (foglio "Commenti del blog - Life School Family (Risposte)" nel suo Drive).
    I commenti approvati da Mary si aggiungono a mano in blog/commenti.json
    (chiave = nome della cartella dell'articolo) e compaiono qui sotto. */
 (function () {
-  var DEST = "https://formsubmit.co/ajax/lifeschoolfamily.shop@gmail.com";
+  var DEST = "https://docs.google.com/forms/d/e/1FAIpQLSdkzggHNwGrUpjcjGpyEuZ-caEsesGO4uFP7RaC8YBKvFYb5g/formResponse";
+  var E = { articolo: "entry.617776837", nome: "entry.1450712138", commento: "entry.1130924656", mail: "entry.1025562040" };
   /* modulo Brevo "Materiali omaggio" (newsletter + materiali omaggio) */
   var BREVO = "https://077c5c83.sibforms.com/serve/MUIFANq45jkBJOM0lQjtImPOak8nERttZViUr-Q0QuH1I_T6nMQEM8LgYo7VJt2GO87Ygu3lzlmDpsOsHxpqlHDzIilhtpo2qvgBssqJzCWTF_r7T-ELBm4dBW_yw41W0L0vFX_ybwApcS6l8LNlxdObGgtflDxpVfU1WNPXeCkDrb0DLfiZ7CJFKg2whKstnWEPUyqzsHqprY9-8g==";
   var art = document.querySelector("article.body");
@@ -124,29 +126,18 @@
     if (!document.getElementById("cm-ok").checked) { avviso("Per inviare spunta la casella della privacy.", false); return; }
     bottone.disabled = true;
     bottone.textContent = "Invio in corso, aspetta qualche secondo…";
+    var corpo = new URLSearchParams();
+    corpo.set(E.articolo, titolo + " (" + slug + ")");
+    corpo.set(E.nome, nome);
+    corpo.set(E.commento, testo);
+    corpo.set(E.mail, mail);
     fetch(DEST, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({
-        _subject: "Nuovo commento sul blog: " + titolo,
-        _template: "table",
-        _honey: "",
-        Articolo: titolo,
-        Indirizzo: location.origin + location.pathname,
-        Cartella: slug,
-        Nome: nome,
-        Commento: testo,
-        Newsletter: mail ? mail + " (iscritta/o anche su Brevo)" : "no"
-      })
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: corpo.toString()
     })
-      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-      .then(function (x) {
-        if (x.ok && /activ/i.test(x.j.message || "")) {
-          avviso("Il modulo dei commenti si sta attivando proprio adesso: riprova tra qualche minuto. Scusa!", false);
-          bottone.disabled = false; bottone.textContent = "INVIA IL COMMENTO";
-          return;
-        }
-        if (!x.ok || String(x.j.success) === "false") throw new Error(x.j.message || "errore");
+      .then(function () {
         if (mail) iscrivi(mail, nome);
         form.reset();
         avviso("Grazie! Ho ricevuto il tuo commento. Lo leggo e lo pubblico qui appena posso.", true);
