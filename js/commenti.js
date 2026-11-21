@@ -26,6 +26,11 @@
     ".cm-list{display:flex;flex-direction:column;gap:12px}" +
     ".cm-item{border:2.5px solid var(--ink);border-radius:14px;padding:10px 14px;background:#fff}" +
     ".cm-item.mary{background:var(--yellow)}" +
+    /* risposta di Mary: spostata a destra, con una freccia che scende dal commento e punta alla risposta */
+    ".cm-item.risposta{position:relative;margin-left:36px}" +
+    ".cm-item.risposta::before{content:'';position:absolute;left:-24px;top:-14px;height:calc(50% + 14px);width:17px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);border-bottom-left-radius:12px}" +
+    ".cm-item.risposta::after{content:'';position:absolute;left:-8px;top:calc(50% - 7px);border-left:9px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent}" +
+    "@media(max-width:480px){.cm-item.risposta{margin-left:28px}.cm-item.risposta::before{left:-18px;width:12px}}" +
     ".cm-item b{display:block;font-weight:800}" +
     ".cm-item small{font-size:13px;font-weight:700;color:#444}" +
     ".cm-item p{margin-top:6px;line-height:1.5;white-space:pre-line}" +
@@ -81,9 +86,10 @@
   function mostra(cs) {
     if (!cs || !cs.length) return;
     lista.innerHTML = "";
-    cs.forEach(function (c) {
+    cs.forEach(function (c, i) {
       var el = document.createElement("div");
-      el.className = "cm-item" + (c.mary ? " mary" : "");
+      /* una risposta di Mary si aggancia al commento che la precede; se è la prima della lista resta un riquadro normale */
+      el.className = "cm-item" + (c.mary ? " mary" : "") + (c.mary && i > 0 ? " risposta" : "");
       var b = document.createElement("b");
       b.textContent = c.mary ? "Mary di Life School Family" : c.nome;
       var sm = document.createElement("small");
