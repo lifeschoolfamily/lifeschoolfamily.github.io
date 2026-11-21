@@ -1,10 +1,14 @@
 /* Commenti del blog di Life School Family – modulo "fatto in casa".
    Chi commenta scrive nome e commento: finiscono in un Google Modulo di Mary
    (foglio "Commenti del blog - Life School Family (Risposte)" nel suo Drive).
-   I commenti approvati da Mary si aggiungono a mano in blog/commenti.json
-   (chiave = nome della cartella dell'articolo) e compaiono qui sotto. */
+   I commenti approvati stanno nel foglio "Commenti blog LSF - Pubblicati"
+   (pubblicato sul web in CSV): compaiono qui sotto solo le righe con la
+   casella "pubblicato" spuntata. Come riserva si legge anche blog/commenti.json
+   (chiave = nome della cartella dell'articolo). */
 (function () {
-  var DEST = "https://docs.google.com/forms/d/e/1FAIpQLSdvEh4tC-o_prZx3bbnYdzxS3e4DsvNvUeSF-qRoY6FN9uqlg/formResponse";
+  /* foglio "Pubblicati", scheda "Commenti", pubblicato sul web in CSV */
+  var CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR__lMzmNjW-pzaRniWJrIswuiT42DdxhtpKoHYIem2ZyJY2jqMl_D8rKHOud5awa8xvn4ncXvBvJo3/pub?gid=1142690083&single=true&output=csv";
+  var DEST ="https://docs.google.com/forms/d/e/1FAIpQLSdvEh4tC-o_prZx3bbnYdzxS3e4DsvNvUeSF-qRoY6FN9uqlg/formResponse";
   var E = { articolo: "entry.980406699", nome: "entry.1617996346", commento: "entry.1637038581", mail: "entry.859030588" };
   /* modulo Brevo "Materiali omaggio" (newsletter + materiali omaggio) */
   var BREVO = "https://077c5c83.sibforms.com/serve/MUIFANq45jkBJOM0lQjtImPOak8nERttZViUr-Q0QuH1I_T6nMQEM8LgYo7VJt2GO87Ygu3lzlmDpsOsHxpqlHDzIilhtpo2qvgBssqJzCWTF_r7T-ELBm4dBW_yw41W0L0vFX_ybwApcS6l8LNlxdObGgtflDxpVfU1WNPXeCkDrb0DLfiZ7CJFKg2whKstnWEPUyqzsHqprY9-8g==";
@@ -90,10 +94,65 @@
       lista.appendChild(el);
     });
   }
-  fetch("../commenti.json?t=" + Date.now(), { cache: "no-store" })
-    .then(function (r) { return r.ok ? r.json() : {}; })
-    .then(function (j) { mostra(j[slug]); })
-    .catch(function () {});
+  /* legge un CSV (virgolette, virgole e a capo dentro il testo compresi) */
+  function leggiCsv(t) {
+    var righe = [], r = [], c = "", q = false, i, ch;
+    t = String(t).replace(/^﻿/, "");
+    for (i = 0; i < t.length; i++) {
+      ch = t.charAt(i);
+      if (q) {
+        if (ch === '"') {
+          if (t.charAt(i + 1) === '"') { c += '"'; i++; } else { q = false; }
+        } else { c += ch; }
+      } else if (ch === '"') { q = true; }
+      else if (ch === ",") { r.push(c); c = ""; }
+      else if (ch === "\n" || ch === "\r") {
+        if (ch === "\r" && t.charAt(i + 1) === "\n") i++;
+        r.push(c); c = ""; righe.push(r); r = [];
+      } else { c += ch; }
+    }
+    if (c !== "" || r.length) { r.push(c); righe.push(r); }
+    return righe;
+  }
+  function vero(s) { return /^(true|vero|si|sì|x|1|yes)$/i.test(String(s || "").trim()); }
+  function dataIso(s) {
+    s = String(s || "").trim();
+    var m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+    if (m) return m[3] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[1]).slice(-2);
+    return s.slice(0, 10);
+  }
+  /* righe del foglio per questo articolo, solo se "pubblicato" è spuntato */
+  function daFoglio(testo) {
+    var righe = leggiCsv(testo);
+    if (!righe.length) return [];
+    var h = righe[0].map(function (x) { return x.trim().toLowerCase(); });
+    var ix = { a: h.indexOf("articolo"), n: h.indexOf("nome"), d: h.indexOf("data"), t: h.indexOf("testo"), m: h.indexOf("mary"), p: h.indexOf("pubblicato") };
+    if (ix.a < 0 || ix.t < 0 || ix.p < 0) return [];
+    var fuori = [];
+    righe.slice(1).forEach(function (x) {
+      var a = (x[ix.a] || "").trim(), t = (x[ix.t] || "").trim();
+      if (!a || !t || !vero(x[ix.p])) return;
+      if (a !== slug && a.indexOf("(" + slug + ")") < 0) return;
+      fuori.push({
+        nome: ix.n >= 0 ? (x[ix.n] || "").trim() : "",
+        data: ix.d >= 0 ? dataIso(x[ix.d]) : "",
+        testo: t,
+        mary: ix.m >= 0 && vero(x[ix.m])
+      });
+    });
+    return fuori;
+  }
+  var ritardo = Math.floor(Date.now() / 300000); /* il foglio si aggiorna ogni pochi minuti */
+  Promise.all([
+    fetch("../commenti.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (j) { return (j && j[slug]) || []; })
+      .catch(function () { return []; }),
+    fetch(CSV + "&_=" + ritardo)
+      .then(function (r) { return r.ok ? r.text() : ""; })
+      .then(daFoglio)
+      .catch(function () { return []; })
+  ]).then(function (v) { mostra(v[0].concat(v[1])); });
 
   /* iscrizione a Brevo con un modulo nascosto (niente problemi di CORS) */
   function iscrivi(mail, nome) {
